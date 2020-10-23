@@ -1,0 +1,35 @@
+window.fbAsyncInit = function() {
+	FB.api('/kkdkorea1937?fields=picture,name', function(fresponse){
+		FB.api('/v2.12/kkdkorea1937/posts/?fields=name,message,object_id,created_time', {access_token:'651605184866995|PHPK-MVCJ1GC0G8NqxkAAARacak', limit:10},function(data){
+			try{
+				var str = '';
+				str += '<ul class="social_bask">';
+				var idx = 0;
+				$.each(eval(data.data), function($i, $ret){
+					if($.type($ret.message)!=='undefined'){
+						var fid = $ret.id;
+						var fTid = '';
+						if(fid.indexOf('_') > 0) {
+							fTid = fid.split('_')[1];
+						}
+						str += '<li class="clfix">';
+						//str += '<img src="/images/main/temp_sns02.gif" alt="크리스피크림 도넛 트위터 사진" width="56" height="56" />';
+						//str += '<div>'+fresponse.name ;						
+						//str += '<div>'+$ret.from.name ;						
+						str += '<div>크리스피 크림 도넛(Krispykremekorea)' ;						
+						str += '<p><a href="https://www.facebook.com/190935550953478/posts/'+fTid+'" target="_blank" title="새창열기">'+$ret.message+'</a></p>';
+						str += '</div>';				
+						str += '</li>';					
+						idx++;
+						if(idx == 5) return false;
+					}
+				});
+				str += '</ul>';
+				$('#list_fb').html(str);
+				//$(".snsRoll").snsInit();
+				
+				passSnsHeight();
+			}catch(e){}
+		});
+	});
+};

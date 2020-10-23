@@ -1,0 +1,1477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0029)http://www.krispykreme.co.kr/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+
+<title>Make Today Special! 크리스피크림도넛</title>
+<!-- <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" type="text/css" rel="stylesheet" /> -->
+<link href="./Make Today Special! 크리스피크림도넛_files/main.css" type="text/css" rel="stylesheet">
+<link href="./Make Today Special! 크리스피크림도넛_files/nanumgothic.css" type="text/css" rel="stylesheet">
+<link rel="shortcut icon" href="http://www.krispykreme.co.kr/images/common/favicon.ico">
+<script async="" src="./Make Today Special! 크리스피크림도넛_files/analytics.js.다운로드"></script><script id="twitter-wjs" src="./Make Today Special! 크리스피크림도넛_files/widgets.js.다운로드"></script><script src="./Make Today Special! 크리스피크림도넛_files/jquery-1.11.3.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+<script src="./Make Today Special! 크리스피크림도넛_files/default.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="./Make Today Special! 크리스피크림도넛_files/common.js.다운로드"></script>
+<script src="./Make Today Special! 크리스피크림도넛_files/jquery.easing.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+<script src="./Make Today Special! 크리스피크림도넛_files/bgpos.js.다운로드" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var event_obj =[{ename:"theater",txt01:133, txt02:278, btn:360},
+						 {ename:"chocoA",txt01:113, txt02:160, btn:405},
+						 {ename:"pine",txt01:92, txt02:223, btn:413},
+						 {ename:"inside",txt01:70, txt02:320, btn:440},
+						 {ename:"mlikcream",txt01:100, txt02:null, btn:375},
+						 {ename:"mshakk",txt01:30, txt02:null, btn:247},
+						 //{ename:"itz3",txt01:156, txt02:226, btn:400},
+						 {ename:"leatz",txt01:110, txt02:235, btn:370},
+						 {ename:"sweetWZ",txt01:50, txt02:320, btn:425},
+						 {ename:"mainCoffee",txt01:120, txt02:null, btn:376},
+						 {ename:"groupSale",txt01:135, txt02:206, btn:330}
+	]
+</script>
+<script src="./Make Today Special! 크리스피크림도넛_files/main.js.다운로드" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="./Make Today Special! 크리스피크림도넛_files/main_facebook.js.다운로드"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+function openSNS(gunbun, msg, url_head) {
+	var href = "";
+	var name = "";
+	var image = "";
+	var summary = "";
+	var url = encodeURIComponent(url_head);
+	if (gunbun == "twitter") {
+		href = "http://twitter.com/share?url="+url+"&text="+encodeURI(msg);
+		name = "twitter";
+	} else if(gunbun == "facebook") {
+		href = "http://www.facebook.com/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + encodeURIComponent(image) + "&p[title]=" + encodeURIComponent(msg) + "&p[summary]=" + encodeURIComponent(summary);
+		href = href.split("#").join("%23");
+	}
+	window.open(href, name, "width=626, height=436, scrollbars=no");
+}
+
+function openSNS2(gunbun, msg, seq) {
+	var url_head = "http://www.krispykreme.co.kr/event/event_view.asp?seq="+seq;
+	var href = "";
+	var title = "";
+	var image = "";
+	var summary = "";
+	var url = encodeURIComponent(url_head);
+	if (gunbun == "twitter") {
+		href = "http://twitter.com/share?url="+url+"&text="+encodeURI(msg);
+		title = "twitter";
+	} else if(gunbun == "facebook") {
+		href = "http://www.facebook.com/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + encodeURIComponent(image) + "&p[title]=" + encodeURIComponent(msg) + "&p[summary]=" + encodeURIComponent(summary);
+		href = href.split("#").join("%23");
+	}
+	window.open(href, title, "width=626, height=436, scrollbars=no");
+}
+
+$(document).ready(function(){
+	//$("#list_fb").load("/main/main_facebook.asp");
+	//$("#list_tw").load("/main/main_twitter.asp");
+	$.ajax({
+		url : "/main/ASPTwitter.asp",
+		type : "get",
+		dataType : "json",
+		success : function(data){
+			try{					
+				var str = '';
+				var idxt = 0;
+				str += "<ul class='social_bask'>"
+				$.each(data, function($i, $ret){
+						str += '<li class="clfix">';						
+					str += '<div>';
+					str += '<strong>'+$ret.user.name+'</strong>&nbsp;<span>@KrispyKremeKr</span>';
+					str += '<p><a href="https://twitter.com/'+$ret.user.screen_name+'/status/'+$ret.id_str+'" target="_blank" title="새창열기">'+$ret.text+'</a></p>';
+					str += '</div>';
+						str += '</li>';
+					idxt++;
+					if(idxt == 10) return false;
+				});
+				str += "</ul>"
+				//$('#list_tw').html(str);
+			}catch(e){
+			}
+		},
+		error:function(xhr,error,code) {
+			if(error=='parsererror') {
+			//파싱에러면 우리가 직접 파싱을 해주면 됩니다.
+			//xhr.responseText는 원래 글자
+				var json = eval(xhr.responseText);
+				//displayIdols(json);
+			}else {
+				//alert("Twitter loading fail");
+			}
+		}
+	});
+	var mCoupon = new small_banner_controller();
+	mCoupon.init(".mcoupon_list");
+});
+
+
+//]]>
+</script>
+
+<script charset="utf-8" src="./Make Today Special! 크리스피크림도넛_files/moment_timeline_tweet.ae149926685a43cb146e35371430188e.js.다운로드"></script><script charset="utf-8" src="./Make Today Special! 크리스피크림도넛_files/timeline.687eed636a16648c9f0b1f72d7fa68bd.js.다운로드"></script></head>
+<body>
+
+<!-- s:header include area -->
+<h1 class="hide_text">크리스피 크림 도넛</h1>
+
+<ul class="skipnav">
+	<li><a href="http://www.krispykreme.co.kr/#content">본문으로 바로가기</a></li>
+</ul>
+
+<h2 class="hide_text">주메뉴 영역</h2>
+<div id="header">
+	<div class="header_content clfix">
+		<!--a href="/" class="logo"><img src="/images/common/logo.png" alt="Krispy Kreme Doughnuts - Make Today Special" /></a-->
+			<a href="http://www.krispykreme.co.kr/main.asp" class="logo"><img src="./Make Today Special! 크리스피크림도넛_files/logo.png" alt="Krispy Kreme Doughnuts - Make Today Special"></a>
+
+		<div class="menu_area clfix">
+			<div class="util_menu_wrap">
+				<ul class="util_menu clfix">
+					<!-- 2016-03-31 멤버십 등급 추가 -->
+					<li class="first_child mem_grade"><a href="http://www.krispykreme.co.kr/#" class="open_popup_grade"><img src="./Make Today Special! 크리스피크림도넛_files/btn_gnb_memgrade.png" alt="등급안내"></a>
+					</li>	
+					<!-- //2016-03-31 멤버십 등급 추가  -->	
+					
+					<li class="first_child"><a href="http://www.krispykreme.co.kr/util/login.asp">로그인</a></li>
+					<li><a href="http://www.krispykreme.co.kr/util/join_process01.asp">회원가입</a></li>
+					
+					<li><a href="http://www.krispykreme.co.kr/customer/faq.asp">고객의소리</a></li>
+					<li><a href="http://www.lotteria.com/Campaign/Management/Ethics_report.asp?sitecode=003" target="_blank" title="새창 열림">윤리경영</a></li><!-- 2016-01-20 -->
+					<li><a href="http://www.krispykreme.co.kr/footer/sitemap.asp">사이트맵</a></li>
+					<li><a href="http://www.krispykreme.co.kr/en/">English</a></li>
+				</ul>
+			</div>
+
+			<!-- 2016-03-31 추가 회원 등급안내 레이어팝업 -->
+		<div class="popup_grade" style="display:none;">
+			<div> 
+			<h2><img src="./Make Today Special! 크리스피크림도넛_files/img_tit_popup_level.jpg" alt="L.POINT 회원 등급 안내"></h2>
+				<ul class="grade_info">
+					<li><p>우수회원 산정 기준 : 연 4회 이상 L.POINT 적립</p></li>
+					<li><p>L.POINT 취소, 환불 및 사용한 건은 반영되지 않습니다.</p></li>
+					<li><p>회원 등급은 1년간 유지 됩니다.</p></li>
+					<li><p>등급 산정은 매년 3월 1일부터 적용 됩니다.</p>
+						<p class="bgnone">ex) 15년 실적 기준 → 16년 3월 1일 ~ 17년 2월 28일 등급 적용</p></li>
+					<li><p>등급별 혜택</p>
+						<table summary="L.POINT 등급별 혜택을 안내합니다." class="grade_benefit">
+							<caption>L.POINT 등급별 혜택</caption>
+							<colgroup>
+								<col width="50%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">헤택</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>우수회원</td>
+									<td>결제금액의 0.5% 적립</td>
+								</tr>
+								<tr>
+									<td>일반회원</td>
+									<td>결제금액의 0.3% 적립</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<!-- 2016-03-31 추가 -->
+					<li>
+						<p>L.POINT 회원 등급은 롯데리아 홈페이지에서 로그인 후 확인이 가능합니다.
+							<a href="http://www.lotteria.com/" target="_blank" title="새창열기">www.lotteria.com</a></p>
+					</li>
+					<!-- 2016-03-31 추가 -->
+				</ul>
+			</div>
+			<a href="http://www.krispykreme.co.kr/#" class="close_popup_grade"><img src="./Make Today Special! 크리스피크림도넛_files/btn_close_popup.gif"></a>
+		</div>
+		<!-- // 2016-03-31 추가 회원 등급안내 레이어팝업 -->
+
+
+			<ul class="gnb_menu clfix">
+				<!-- s:GNB배경영역 -->
+				<li class="sub_background">
+					<div class="gsm_bg" style="opacity: 0; display: none;">
+						<div class="gsm_bg_inner">
+							<div class="gsm_bg_content clfix">
+								<div class="gsm_bg_visual">
+									<img src="./Make Today Special! 크리스피크림도넛_files/gnb_sub_menu_visual_202010.png" alt=""><!-- 2017-02-15 수정 -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- e:GNB배경영역 -->
+				<li class="gm"><a href="http://www.krispykreme.co.kr/menu/new_popular.asp" class="gm_link gnb_link01">MENU</a>
+					<div class="gnb_sub_menu" style="opacity: 0; display: none;">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list01">
+								<ul class="gsm_sub_list">
+									<li><a href="http://www.krispykreme.co.kr/menu/new_popular.asp">신제품/인기제품</a></li>
+									<!-- <li><a href="/menu/season.asp">시즌제품</a></li> -->
+									<li><a href="http://www.krispykreme.co.kr/menu/season.asp">이달의 메뉴</a></li>
+									<li><a href="http://www.krispykreme.co.kr/menu/doughnut.asp">도넛</a></li>
+									<li><a href="http://www.krispykreme.co.kr/menu/coffee.asp">커피/음료</a></li>
+									<li><a href="http://www.krispykreme.co.kr/menu/kooltime.asp">아이스크림/프로즌</a></li>
+									<!-- <li><a href="/menu/bakery.asp">베이커리</a></li> -->
+									<li><a href="http://www.krispykreme.co.kr/menu/branding.asp">브랜딩 제품소개</a></li>
+									<!-- <li><a href="javascript:alert('준비중입니다.');">시즌메뉴</a></li> -->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="gm"><a href="http://www.krispykreme.co.kr/store/store_search.asp" class="gm_link gnb_link02">STORE</a>
+					<div class="gnb_sub_menu" style="opacity: 0; display: none;">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list02">
+								<ul class="gsm_sub_list">
+									<li><a href="http://www.krispykreme.co.kr/store/store_search.asp">매장찾기</a></li>
+									<li><a href="http://www.krispykreme.co.kr/store/store_merchants.asp">가맹점모집</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="gm"><a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp" class="gm_link gnb_link08">HOME SERVICE</a>
+					<div class="gnb_sub_menu" style="opacity: 0; display: none;">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list08">
+								<ul class="gsm_sub_list">
+									<li><a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp">홈서비스</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="gm"><a href="http://www.krispykreme.co.kr/event/event_list.asp" class="gm_link gnb_link03">EVENT</a>
+					<div class="gnb_sub_menu" style="opacity: 0; display: none;">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list03">
+								<ul class="gsm_sub_list">
+									<li><a href="http://www.krispykreme.co.kr/event/event_list.asp">진행 이벤트</a></li>
+									<li><a href="http://www.krispykreme.co.kr/event/finish_list.asp">종료 이벤트</a></li>
+									<li><a href="http://www.krispykreme.co.kr/event/winner_announce_list.asp">당첨자 발표</a></li>
+									<!-- <li><a href="/event/omni_channel.asp">그룹 옴니채널</a></li> -->
+									<!-- <li><a href="/etc/pokemonGo.asp">Pokémon GO</a></li> -->
+									<li><a href="http://www.krispykreme.co.kr/event/partner_service.asp">제휴 서비스</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- <li class="gm"><a href="/club/online_poll_list.asp" class="gm_link gnb_link04">SHARE</a>
+					<div class="gnb_sub_menu">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list04">
+								<ul class="gsm_sub_list">
+									<!-- <li><a href="/club/talk.asp">Talk! Talk!</a></li>
+									<li><a href="/club/online_poll_list.asp">온라인폴</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li> -->
+				<li class="gm"><a href="http://www.krispykreme.co.kr/brand/brand_theater.asp" class="gm_link gnb_link05">BRAND</a>
+					<div class="gnb_sub_menu" style="opacity: 0; display: none;">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list05">
+								<ul class="gsm_sub_list">
+									<li><a href="http://www.krispykreme.co.kr/brand/brand_theater.asp">도넛극장</a></li>
+									<li><a href="http://www.krispykreme.co.kr/brand/brand_story.asp">브랜드스토리</a></li>
+									<!--
+									<li><a href="/brand/society_move_list.asp">사회공헌활동</a></li>
+									-->
+									<li><a href="http://www.krispykreme.co.kr/brand/brand_video.asp">브랜드영상</a></li>
+									<!-- <li><a href="/brand/brand_card.asp">제휴카드소개</a></li> -->
+									<li><a href="http://www.krispykreme.co.kr/brand/brand_voucher.asp">상품권 구입안내</a></li>
+									<li><a href="http://www.krispykreme.co.kr/brand/notice_list.asp">공지사항</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- <li class="gm"><a href="javascript:alert('준비중입니다.');" class="gm_link gnb_link06">GIFT</a>
+					<div class="gnb_sub_menu">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list06">
+								<ul class="gsm_sub_list">
+									<li><a href="javascript:alert('준비중입니다.');">크리스피크림<br />답례품</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li> -->
+				<li class="gm last_child"><a href="http://www.kkdkoreasurvey.com/" class="gm_link gnb_link07" target="_blank">SURVEY</a>
+					<div class="gnb_sub_menu" style="opacity: 0; display: none;">
+						<div class="gnb_sub_menu_inner">
+							<div class="gsm_list gsm_list07">
+								<ul class="gsm_sub_list">
+									<li><a href="http://www.kkdkoreasurvey.com/" target="_blank">설문조사</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<!-- e:header include area -->
+
+<h2 class="hide_text">본문 영역</h2>
+
+<div id="main">
+
+	<!-- s:main_visual-->
+	<div id="content" class="visual_content">
+		<div class="vis_controller origin clfix"><!-- 메인 비쥬얼 롤링 영역 -->
+			<ul class="vis_stoper num8 clfix" style="margin-left: 292px;">
+				<li><a href="http://www.krispykreme.co.kr/#"><img src="./Make Today Special! 크리스피크림도넛_files/img_mainvis_stop.png" alt="메인 롤링 일시 정지"></a></li>
+				<li class="last"><a href="http://www.krispykreme.co.kr/#"><img src="./Make Today Special! 크리스피크림도넛_files/img_mainvis_play_on.png" alt="메인 롤링 시작"></a></li>
+			</ul>
+			<ul class="visual_sec num8 clfix" style="margin-left: -336px;">
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">KKD 도넛극장 보기</a>
+					<div class="vis00_theater" style="background: url(&quot;/images/main/bg_theater.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_theater_01" id="ani_theater_01" style="position: absolute; left: 57px; top: 133px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/theater_txt.png" alt="">
+							</div>
+							<div class="ani_theater_02" id="ani_theater_02" style="position: absolute; left: 63px; top: 278px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/theater_txt1.png" alt="">
+							</div>
+							<div class="ani_theater_btn" id="ani_theater_btn" style="position: absolute; left: 157px; top: 360px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/brand/brand_theater.asp"><img src="./Make Today Special! 크리스피크림도넛_files/btn_famDay0824.png" alt="자세히 보기"></a>
+							</div>
+						</div>
+					</div>				
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">Chocolate Assemble 신제품 보기</a>
+					<div class="vis00_chocoA" style="background: url(&quot;/images/main/bg_chocoA.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_chocoA_01" id="ani_chocoA_01" style="position: absolute; left: 186px; top: 113px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/chocoA_txt.png" alt="">
+							</div>
+							<div class="ani_chocoA_02" id="ani_chocoA_02" style="position: absolute; left: 40px; top: 160px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/chocoA_txt02.png" alt="">
+							</div>
+							<div class="ani_chocoA_btn" id="ani_chocoA_btn" style="position: absolute; left: 160px; top: 405px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=370&amp;x=15&amp;y=15"><img src="./Make Today Special! 크리스피크림도넛_files/btn_famDay0824.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;Chocolate Assemble facebook 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=370&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;Chocolate Assemble twiiter 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=370&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">스폰지밥 가습기 이벤트 보기</a>
+					<div class="vis00_pine" style="background: url(&quot;/images/main/bg_pine.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_pine_01" id="ani_pine_01" style="position: absolute; left: 63px; top: 92px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/pine_txt01.png" alt="">
+							</div>
+							<div class="ani_pine_02" id="ani_pine_02" style="position: absolute; left: 48px; top: 223px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/pine_txt02.png" alt="">
+							</div>
+							<div class="ani_pine_btn" id="ani_pine_btn" style="position: absolute; left: 162px; top: 413px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=272"><img src="./Make Today Special! 크리스피크림도넛_files/btn_green_left.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS2(&#39;facebook&#39;, &#39;크리스피 크림 스폰지밥 가습기 이벤트 facebook 공유하기&#39;, &#39;272&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS2(&#39;twitter&#39;, &#39;크리스피 크림 스폰지밥 가습기 이벤트 twiiter 공유하기&#39;, &#39;272&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="on">
+					<a href="http://www.krispykreme.co.kr/#">아인싸 신제품 보기</a>
+					<div class="vis00_inside" style="background: url(&quot;/images/main/bg_inside.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 1;">
+						<div class="vinner_con">
+							<div class="ani_inside_01" id="ani_inside_01" style="position: absolute; left: 40px; top: 70px; opacity: 1;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/inside_txt.png" alt="">
+							</div>
+							<div class="ani_inside_02" id="ani_inside_02" style="position: absolute; left: 125px; top: 320px; opacity: 1;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/inside_txt02.png" alt="">
+							</div>
+							<div class="ani_inside_btn" id="ani_inside_btn" style="position: absolute; left: 96px; top: 440px; opacity: 1;">
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=368&amp;x=15&amp;y=15"><img src="./Make Today Special! 크리스피크림도넛_files/btn_famDay0824.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;아인싸 Daughnuts facebook 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=368&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;아인싸 Daughnuts twiiter 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=368&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">ORIGINAL Filled 신제품 보기</a>
+					<div class="vis00_mlikcream" style="background: url(&quot;/images/main/bg_mlikcream.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_mlikcream_01" id="ani_mlikcream_01" style="position: absolute; left: 35px; top: 100px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/mlikcream_txt.png" alt="">
+							</div>
+							<div class="ani_mlikcream_btn" id="ani_mlikcream_btn" style="position: absolute; left: 140px; top: 375px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=362&amp;x=15&amp;y=15"><img src="./Make Today Special! 크리스피크림도넛_files/btn_famDay0824.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;ORIGINAL Filled Daughnuts facebook 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=362&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;ORIGINAL Filled Daughnuts twiiter 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=362&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">MILK SHAKK 신제품 보기</a>
+					<div class="vis00_mshakk" style="background: url(&quot;/images/main/bg_mshakk.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_mshakk_01" id="ani_mshakk_01" style="position: absolute; left: 315px; top: 30px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/mshakk_txt.png" alt="">
+							</div>
+							<div class="ani_mshakk_btn" id="ani_mshakk_btn" style="position: absolute; left: 408px; top: 247px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=358&amp;x=15&amp;y=15"><img src="./Make Today Special! 크리스피크림도넛_files/btn_green_left.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;MILK SHAKK Daughnuts facebook 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=358&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;MILK SHAKK Daughnuts twiiter 공유하기&#39;, &#39;http://www.krispykreme.co.kr/menu/new_popular.asp?seq=358&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<!-- <li>
+					<a href="#">롯데잇츠 이벤트 보기</a>
+					<div class="vis00_itz3" style="background:#fff url('/images/main/bg_itz5.jpg') no-repeat center 0;overflow:hidden;">
+						<div class="vinner_con">
+							<div class="ani_itz3_01"  id="ani_itz3_01" style="position: absolute;left:20px;top:156px;opacity:0;filter:alpha(opacity=0)">
+								<img src="/images/main/itz4_txt01.png" alt="매장 또는 롯데잇츠에서 L.pay 사용시"  />
+							</div>
+							<div class="ani_itz3_02"  id="ani_itz3_02" style="position: absolute;left:13px;top:226px;opacity:0;filter:alpha(opacity=0)">
+								<img src="/images/main/itz4_txt02.png" alt="최대 1천P 페이백!"  />
+							</div>
+							<div class="ani_itz3_btn"  id="ani_itz3_btn" style="position: absolute;left:146px;top:400px;opacity:0;filter:alpha(opacity=0)">
+								<a href="/event/event_view.asp?seq=262"><img src="/images/main/btn_green_left.png" alt="자세히 보기"  /></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS2('facebook', '크리스피 크림 롯데잇츠  이벤트 facebook 공유하기', '262');" title="새창 열림"><img src="/images/main/btn_main_sns01.png" alt="" /></a></li>
+								<li><a href="javascript:openSNS2('twitter', '크리스피 크림 롯데잇츠  이벤트 twiiter 공유하기', '262');" title="새창 열림"><img src="/images/main/btn_main_sns02.png" alt="" /></a></li>
+							</ul>
+						</div>
+					</div>
+				</li> -->
+				<!-- <li>
+					<a href="#">딸기 글레이즈드 도넛 신제품 보기</a>
+					<div class="vis00_custard" style="background:#fff url('/images/main/bg_ddalgi1.jpg') no-repeat center 0;overflow:hidden;">
+						<div class="vinner_con">
+							<div class="ani_ddalgi_01"  id="ani_ddalgi_01" style="position: absolute;left:33px;top:124px;opacity:0;filter:alpha(opacity=0)">
+								<img src="/images/main/ddalgi_txt.png" alt="딸기 글레이즈드 STRAWBERRY GLAZED"  />
+							</div>
+							<div class="ani_ddalgi_btn"  id="ani_ddalgi_btn" style="position: absolute;left:33px;top:272px;opacity:0;filter:alpha(opacity=0)">
+								<a href="/menu/new_popular.asp?seq=331&x=15&y=15"><img src="/images/main/btn_green_left.png" alt="자세히 보기"  /></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS('facebook', '딸기 글레이즈드 도넛 facebook 공유하기', 'http://www.krispykreme.co.kr/menu/new_popular.asp?seq=331');" title="새창 열림"><img src="/images/main/btn_main_sns01.png" alt="" /></a></li>
+								<li><a href="javascript:openSNS('twitter', '딸기 글레이즈드 도넛 twiiter 공유하기', 'http://www.krispykreme.co.kr/menu/new_popular.asp?seq=331');" title="새창 열림"><img src="/images/main/btn_main_sns02.png" alt="" /></a></li>
+							</ul>
+						</div>
+					</div>
+				</li> -->
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">LOTTE EATZ 보기</a>
+					<div class="vis00_leatz" style="background: url(&quot;/images/main/bg_leatz.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_leatz_01" id="ani_leatz_01" style="position: absolute; left: 0px; top: 110px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/leatz_txt.png" alt="5개 브랜드 모두 온라인으로 주문할 수 있는">
+							</div>
+							<div class="ani_leatz_02" id="ani_leatz_02" style="position: absolute; left: 0px; top: 235px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/leatz_txt02.png" alt="LOTTE EATZ를 만나보세요!">
+							</div>
+							<div class="ani_leatz_btn" id="ani_leatz_btn" style="position: absolute; left: 0px; top: 370px; opacity: 0;">
+								<a href="https://www.lotteeatz.com/main/main" target="_blank"><img src="./Make Today Special! 크리스피크림도넛_files/btn_leatz.png" alt="자세히 주문 바로가기"></a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">수요일 이벤트 보기</a>
+					<div class="vis00_sweetWZ" style="background: url(&quot;/images/main/bg_sweetWZ.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_sweetWZ_01" id="ani_sweetWZ_01" style="position: absolute; left: 33px; top: 50px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/sweetWZ_txt01.png" alt="Sweet Sharing 달콤한 수요일">
+							</div>
+							<div class="ani_sweetWZ_02" id="ani_sweetWZ_02" style="position: absolute; left: 90px; top: 320px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/sweetWZ_txt02.png" alt="오리지널 글레이즈드 하프더즌 1+1">
+							</div>
+							<div class="ani_sweetWZ_btn" id="ani_sweetWZ_btn" style="position: absolute; left: 110px; top: 425px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=227"><img src="./Make Today Special! 크리스피크림도넛_files/btn_famDay0824.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS2(&#39;facebook&#39;, &#39;크리스피 크림 수요일 이벤트 facebook 공유하기&#39;, &#39;227&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS2(&#39;twitter&#39;, &#39;크리스피 크림 수요일 이벤트 twiiter 공유하기&#39;, &#39;227&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">KRISPY KREME COFFEE 보기</a>
+					<div class="vis00_mainCoffee" style="background: url(&quot;/images/main/bg_mainCoffee.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_mainCoffee_01" id="ani_mainCoffee_01" style="position: absolute; left: 0px; top: 120px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/mainCoffee_txt01.png" alt="KRISPY KREME COFFEE So Good">
+							</div>
+							<div class="ani_mainCoffee_btn" id="ani_mainCoffee_btn" style="position: absolute; left: 80px; top: 376px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/menu/coffee.asp"><img src="./Make Today Special! 크리스피크림도넛_files/btn_famDay0824.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a onclick="window.open(&#39;http://www.facebook.com/sharer.php?u=http://www.krispykreme.co.kr/menu/coffee.asp&#39;, &#39;facebook&#39;, &#39;width=626, height=436, scrollbars=no&#39;); return false" href="http://www.krispykreme.co.kr/#" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a onclick="window.open(&#39;http://twitter.com/share?url=http://www.krispykreme.co.kr/menu/coffee.asp&amp;text=아메리카노&#39;, &#39;twitter&#39;, &#39;width=626, height=436, scrollbars=no&#39;); return false" href="http://www.krispykreme.co.kr/#" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">크리스피 크림 단체주문 보기</a>
+					<div class="vis00_groupSale" style="background: url(&quot;/images/main/bg_groupSale2.jpg&quot;) center 0px no-repeat rgb(255, 255, 255); overflow: hidden; opacity: 0;">
+						<div class="vinner_con">
+							<div class="ani_groupSale_01" id="ani_groupSale_01" style="position: absolute; left: 58px; top: 135px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/groupSale2_txt01.png" alt="Share the love">
+							</div>
+							<div class="ani_groupSale_02" id="ani_groupSale_02" style="position: absolute; left: 9px; top: 206px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/groupSale2_txt02.png" alt="단체주문 할인">
+							</div>
+							<div class="ani_groupSale_btn" id="ani_groupSale_btn" style="position: absolute; left: 140px; top: 330px; opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=153"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detail_160926.png" alt="자세히 보기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS2(&#39;facebook&#39;, &#39;크리스피 크림 단체주문 facebook 공유하기&#39;, &#39;153&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt=""></a></li>
+								<li><a href="javascript:openSNS2(&#39;twitter&#39;, &#39;크리스피 크림 단체주문 twiiter 공유하기&#39;, &#39;153&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">크리스피 크림 도넛 보기</a>
+					<div class="vis01" style="opacity: 0; background-position-y: -166px;">
+						<div class="vinner_con">
+							<div class="ani_vis01_01" id="ani_vis01_01" style="opacity: 0; top: 166px;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/img_intro01_01.png" alt="Krispy Kreme DOUGHNUTS®">
+							</div>
+							<!-- <div class="ani_vis01_02"  id="ani_vis01_02">
+								<img src="/images/main/img_intro01_02.png" alt="Make Today Special"  />
+							</div> -->
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;크리스피 크림 도넛&#39;, &#39;http://www.krispykreme.co.kr/menu/doughnut.asp&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt="크리스피 크림 도넛 facebook 공유"></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;크리스피 크림 도넛&#39;, &#39;http://www.krispykreme.co.kr/menu/doughnut.asp&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt="크리스피 크림 도넛 twiiter 공유"></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="">
+					<a href="http://www.krispykreme.co.kr/#">크리스피크림 커피&amp;음료 보기</a>
+					<div class="vis02" style="opacity: 0;">
+						<div class="vinner_con">
+							<div id="vis2_logo" style="opacity: 0; top: 97px;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/img_intro02_01.png" alt="Krispy Kreme DOUGHNUTS®">
+							</div>
+						 	<div id="vis2_txt01" style="opacity: 0; left: 80px;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/img_intro02_txt_01.png" alt="달콤한 도넛과 조화를 이루는 커피와 음료 맛을 느껴보세요">
+							</div>
+							<div id="vis2_txt02" style="opacity: 0; left: 700px;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/img_intro02_txt_02.png" alt="다양한 크리스피크림 도넛의 세계로 초대합니다.">
+							</div>
+							<div id="vis2_prd" style="top: 69px; opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_02_obj.png" alt="">
+							</div>
+							<div id="vis2_line01" style="opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_02_ani_line01.png" alt="">
+							</div>
+							<div id="vis2_line02" style="opacity: 0;">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_02_ani_line02.png" alt="">
+							</div>
+							<div class="vis2_btn01" id="vis2_btn01" style="opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/menu/coffee.asp"><img src="./Make Today Special! 크리스피크림도넛_files/btn_vis01.png" alt="커피&amp;음료 바로가기"></a>
+							</div>
+							<div class="vis2_btn02" id="vis2_btn02" style="opacity: 0;">
+								<a href="http://www.krispykreme.co.kr/menu/doughnut.asp"><img src="./Make Today Special! 크리스피크림도넛_files/btn_vis02.png" alt="도넛 바로가기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;크리스피 도넛, 커피&#39;, &#39;http://www.krispykreme.co.kr/menu/coffee.asp&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt="크리스피 도넛, 커피 facebook 공유"></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;크리스피 도넛, 커피&#39;, &#39;http://www.krispykreme.co.kr/menu/coffee.asp&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt="크리스피 도넛, 커피 twiiter 공유"></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!-- s:20130821 수정 -->
+			<a href="http://www.krispykreme.co.kr/#" class="go_story" id="go_story"><img src="./Make Today Special! 크리스피크림도넛_files/btn_go_story.png" alt="브랜드 스토리 보기" style="top: -60px; opacity: 1;"></a>
+			<!-- e:20130821 수정 -->
+		</div>
+
+		<div class="vis_controller clfix br_story" style="opacity: 0; display: none;"><!-- 브랜드 스토리 롤링 영역 -->
+			<ul class="vis_stoper clfix" style="margin-left: 292px;">
+				<li><a href="http://www.krispykreme.co.kr/#"><img src="./Make Today Special! 크리스피크림도넛_files/img_mainvis_stop.png" alt="브랜드 스토리 롤링 일시 정지"></a></li>
+				<li class="last"><a href="http://www.krispykreme.co.kr/#"><img src="./Make Today Special! 크리스피크림도넛_files/img_mainvis_play_on.png" alt="브랜드 스토리 롤링 시작"></a></li>
+			</ul>
+			<ul class="visual_sec clfix" style="margin-left: -336px;">
+				<li class="on"><!-- li에 on클래스로 컨트롤러 표시와 컨텐츠가 나타납니다.-->
+					<a href="http://www.krispykreme.co.kr/#">브랜드 스토리 첫번째 비주얼</a>
+					<div class="brs01" style="opacity: 1;">
+						<div class="vinner_con">
+							<div id="vs_br_01_txt01">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_br_01_txt1.png" alt="HOT NOW">
+							</div>
+							<div id="vs_br_01_txt02">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_br_01_txt2.png" alt="네온사인이 켜지면 매장으로 달려가세요!">
+							</div>
+							<div id="vs_br_01_ani01">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vs_br_01_ani0.jpg" alt="">
+							</div>
+							<div id="vs_br_01_ani02">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vs_br_01_ani1.jpg" alt="">
+							</div>
+							<ul class="hotnow_btn clfix">
+								<li>
+									<span id="vs_br_01_txt03">
+										<a href="http://www.krispykreme.co.kr/popup/pop_today_hot_hour.asp" onclick="openNewWindow(this.href, 550, 800, &#39;center&#39;, &#39;middle&#39;, &#39;yes&#39;, &#39;pop_today_hot_hour&#39;); return false;" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_hotlight.png" alt="HOT LIGHT HOUR"></a>
+									</span>
+								</li>
+								<li>
+									<span id="vs_br_01_txt04">
+										<a href="http://www.krispykreme.co.kr/store/store_search.asp"><img src="./Make Today Special! 크리스피크림도넛_files/btn_store.png" alt="매장찾기"></a>
+									</span>
+								</li>
+							</ul>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;크리스피 핫나우&#39;, &#39;http://www.krispykreme.co.kr/store/store_search.asp?schService3=Y&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt="핫나우 facebook 공유"></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;크리스피 핫나우&#39;, &#39;http://www.krispykreme.co.kr/store/store_search.asp?schService3=Y&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt="핫나우 twiiter 공유"></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<a href="http://www.krispykreme.co.kr/#">브랜드 스토리 두번째 비주얼</a>
+					<div class="brs02" style="opacity: 0;">
+						<div class="vinner_con">
+							<div id="vs_br_02_txt01">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_br_02_txt1.png" alt="오리지널 글레이즈 도넛">
+							</div>
+							<div id="vs_br_02_txt02">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_br_02_txt2.png" alt="따뜻하고 달콤한 도넛이 나오고 있으니까요!">
+							</div>
+							<div class="donut_btn" id="vs_br_02_txt03">
+								<a href="http://www.krispykreme.co.kr/menu/doughnut.asp?seq=1"><img src="./Make Today Special! 크리스피크림도넛_files/btn_donut_shortcut.png" alt="도넛 메뉴바로가기"></a>
+							</div>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;오리지널 글레이즈 도넛&#39;, &#39;http://www.krispykreme.co.kr/menu/doughnut.asp?seq=1&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt="오리지널 글레이즈 도넛 facebook 공유"></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;오리지널 글레이즈 도넛&#39;, &#39;http://www.krispykreme.co.kr/menu/doughnut.asp?seq=1&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt="오리지널 글레이즈 도넛 twiiter 공유"></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="http://www.krispykreme.co.kr/#">마지막 - 브랜드 스토리 세번째 비주얼</a>
+					<div class="brs03" style="opacity: 0;">
+						<div class="vinner_con">
+							<div id="vs_br_03_txt01">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_br_03_txt1.png" alt="특별한 가격 크리스피 크림 더즌">
+							</div>
+							<div id="vs_br_03_txt02">
+								<img src="./Make Today Special! 크리스피크림도넛_files/vis_br_03_txt2.png" alt="사랑하는 사람들과 함께 나누세요!">
+							</div>
+							<span class="dozen_btn" id="vs_br_03_txt03">
+								<a href="http://www.krispykreme.co.kr/menu/doughnut.asp?seq=61"><img src="./Make Today Special! 크리스피크림도넛_files/btn_dozen_shortcut.png" alt="더즌 메뉴바로가기"></a>
+							</span>
+							<ul class="sns_sec clfix">
+								<li><a href="javascript:openSNS(&#39;facebook&#39;, &#39;크리스피 크림 더즌&#39;, &#39;http://www.krispykreme.co.kr/menu/doughnut.asp?seq=61&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns01.png" alt="크리스피 크림 더즌 facebook 공유"></a></li>
+								<li><a href="javascript:openSNS(&#39;twitter&#39;, &#39;크리스피 크림 더즌&#39;, &#39;http://www.krispykreme.co.kr/menu/doughnut.asp?seq=61&#39;);" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/btn_main_sns02.png" alt="크리스피 크림 더즌 twiiter 공유"></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<a href="http://www.krispykreme.co.kr/#" class="close_story"><img src="./Make Today Special! 크리스피크림도넛_files/btn_close_story.png" alt="브랜드 스토리 닫기"></a>
+		</div>
+
+	</div>
+	<!-- e:main_visual-->
+	<!-- s:notice_area-->
+	<div class="notic_wrap">
+		<div class="notic_area clfix">
+			<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_main_notice.png" alt="NOTICE"></h3>
+
+			<p><a href="http://www.krispykreme.co.kr/brand/notice_view.asp?seq=369">개인정보처리방침 변경안내&nbsp;<span>[2020.09.15]</span></a></p>
+
+		</div>
+	</div>
+	<!-- s:notice_area-->
+
+	<!-- s:middle_con-->
+	<div class="middle_wrap">
+		<div class="middle_con clfix">
+			<!-- s:HOT n NEW -->
+			<div>
+				<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_mainm_01.png" alt="신제품 /인기제품"></h3><!-- 20130910 -->
+				<ul class="banner_li01">
+
+					<li class="on">
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po1" style="right: 32px;">신제품 /인기제품 1번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/202010816121_13830.jpg" alt="10월 신제품 : 초콜릿 assemb" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>초콜릿 assembl...</span><!-- 20130910 -->
+								<p>
+									밀카 스트로베리 필드: 2,500 
+토블로 타이니: 2,50...
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=370&amp;x=11&amp;y=6"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="초콜릿 assemble 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po2" style="right: 16px;">신제품 /인기제품 2번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/202091417455_33717.jpg" alt="아이스크림 인싸이드 " width="80">
+							</span>
+							<div class="cont_ban">
+								<span>아이스크림 인사이드 </span><!-- 20130910 -->
+								<p>
+									Icecream Incide #아인싸 아이스크림도넛
+...
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=368&amp;x=11&amp;y=6"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="아이스크림 인사이드  자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po" style="right: 0px;">신제품 /인기제품 3번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/2020813115523_29157.jpg" alt="밀크쉑" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>밀크쉑</span><!-- 20130910 -->
+								<p>
+									카라멜 쿠키 밀스쉑 6,000원 
+초코 쿠키 밀크쉑 6,00...
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/menu/new_popular.asp?seq=358&amp;x=46&amp;y=12"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="밀크쉑 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<!-- e:HOT & NEW -->
+			<!-- s:KK EVENT -->
+			<div>
+				<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_mainm_02.png" alt="이벤트"></h3><!-- 20130910 -->
+				<ul class="banner_li02">
+
+					<li class="on">
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po1" style="right: 64px;">이벤트 1번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/2020929152325_16642.jpg" alt="건조한 공간을 촉촉하게 채워주는 스폰지밥 가습기" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>건조한 공간을 촉촉하게...</span><!-- 20130910 -->
+								<p>
+									건조한 공간을 촉촉하게 채워주는 스폰지밥 가습기
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=272"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="건조한 공간을 촉촉하게 채워주는 스폰지밥 가습기 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po2" style="right: 48px;">이벤트 2번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/202049154014_30216.jpg" alt="롯데리아,엔젤리너스,크리스피크림도넛,빌라드샬롯,TGI프라이데이스 모두 온라인으로 주문가능한  LOTTE EATZ를 만나보세요!" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>LOTTE EA...</span><!-- 20130910 -->
+								<p>
+									롯데5개브랜드 온라인주문가능한 LOTTE EATZ!...
+								</p>
+								
+								<a href="https://www.lotteeatz.com/main/main"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="LOTTE EATZ를 만나보세요! 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po" style="right: 32px;">이벤트 3번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/2019110142642_18729.jpg" alt="달콤한 수요일 오리지널 글레이즈드 하프더즌 1+1" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>달콤한 수요일 오리지널...</span><!-- 20130910 -->
+								<p>
+									달콤한 수요일 오리지널 글레이즈드 하프더즌 1+1
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=227"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="달콤한 수요일 오리지널 글레이즈드 하프더즌 1+1 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po4" style="right: 16px;">이벤트 4번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/201752134923_28470.jpg" alt="크리스피 크림 단체주문으로 소중한 사람들과 달콤한 사랑을 나누세요" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>크리스피 크림 단체주문...</span><!-- 20130910 -->
+								<p>
+									크리스피 크림 단체주문으로 소중한 사람들과 달콤한 사랑을 나누...
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=153"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="크리스피 크림 단체주문으로 소중한 사람들과 달콤한 사랑을 나누세요 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://www.krispykreme.co.kr/#" class="ban_cont po5" style="right: 0px;">이벤트 5번째 배너</a>
+						<div class="clfix">
+							<span>
+								<img src="./Make Today Special! 크리스피크림도넛_files/2017224182610_4663.jpg" alt="빠르고 안전한 L.pay 결제 사용해 보셨나요? L.pay App으로 간편하게 결제하고 다양한 혜택 받아가세요!" width="80">
+							</span>
+							<div class="cont_ban">
+								<span>빠르고 안전한 L.p...</span><!-- 20130910 -->
+								<p>
+									L.pay App으로 간편하게 결제하고 다양한 혜택 받아...
+								</p>
+								
+								<a href="http://www.krispykreme.co.kr/event/event_view.asp?seq=130"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="빠르고 안전한 L.pay 결제 사용해 보셨나요? 자세히 보기"></a>
+								
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<!-- e:KK EVENT -->
+			<!-- s:HOMESERIVCE STORE -->
+			<div class="last">
+				<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_mainm_04.png" alt="홈서비스"></h3>
+				<ul class="banner_li03">
+
+					<li class="on">
+					<a href="http://www.krispykreme.co.kr/#" class="ban_cont po1" style="right: 64px;">홈서비스매장 1번째 배너</a>
+					<div class="clfix">
+						<span>
+							<img src="./Make Today Special! 크리스피크림도넛_files/img_default01.gif" alt="" height="80" width="80">
+						</span>
+						<div class="cont_ban">
+							<span>KKD 대구범어점</span>
+							<p>
+								
+							</p>
+							
+							<a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp?seq=1199"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="KKD 대구범어점 자세히 보기"></a>
+							
+						</div>
+					</div>
+				</li>
+
+					<li>
+					<a href="http://www.krispykreme.co.kr/#" class="ban_cont po2" style="right: 48px;">홈서비스매장 2번째 배너</a>
+					<div class="clfix">
+						<span>
+							<img src="./Make Today Special! 크리스피크림도넛_files/img_default01.gif" alt="" height="80" width="80">
+						</span>
+						<div class="cont_ban">
+							<span>KKD 세종청사점</span>
+							<p>
+								배달의민족/요기요/전화주문
+							</p>
+							
+							<a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp?seq=165"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="KKD 세종청사점 자세히 보기"></a>
+							
+						</div>
+					</div>
+				</li>
+
+					<li>
+					<a href="http://www.krispykreme.co.kr/#" class="ban_cont po" style="right: 32px;">홈서비스매장 3번째 배너</a>
+					<div class="clfix">
+						<span>
+							<img src="./Make Today Special! 크리스피크림도넛_files/2017831155525_36880.jpg" alt="남영역점" width="80">
+						</span>
+						<div class="cont_ban">
+							<span>KKD 남영역점</span>
+							<p>
+								배달의민족/요기요/카카오/전화주문
+							</p>
+							
+							<a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp?seq=97"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="KKD 남영역점 자세히 보기"></a>
+							
+						</div>
+					</div>
+				</li>
+
+					<li>
+					<a href="http://www.krispykreme.co.kr/#" class="ban_cont po4" style="right: 16px;">홈서비스매장 4번째 배너</a>
+					<div class="clfix">
+						<span>
+							<img src="./Make Today Special! 크리스피크림도넛_files/2017831155718_34540.jpg" alt="강남역점" width="80">
+						</span>
+						<div class="cont_ban">
+							<span>KKD 강남역점</span>
+							<p>
+								배달의민족/요기요/카카오/전화주문
+							</p>
+							
+							<a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp?seq=94"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="KKD 강남역점 자세히 보기"></a>
+							
+						</div>
+					</div>
+				</li>
+
+					<li>
+					<a href="http://www.krispykreme.co.kr/#" class="ban_cont po5" style="right: 0px;">홈서비스매장 5번째 배너</a>
+					<div class="clfix">
+						<span>
+							<img src="./Make Today Special! 크리스피크림도넛_files/2017831155655_35142.png" alt="대치점" width="80">
+						</span>
+						<div class="cont_ban">
+							<span>KKD 대치점</span>
+							<p>
+								배민라이더스 / 요기요 / 우버이츠
+							</p>
+							
+							<a href="http://www.krispykreme.co.kr/homeservice/homeservice.asp?seq=9"><img src="./Make Today Special! 크리스피크림도넛_files/btn_detailview.gif" alt="KKD 대치점 자세히 보기"></a>
+							
+						</div>
+					</div>
+				</li>
+
+				</ul>
+			</div>
+			<!-- e:HOMESERIVCE STORE -->
+		</div>
+	</div>
+	<!-- e:middle_con-->
+	<!-- s:sns_wrap -->
+	<div class="sns_wrap">
+		<div class="sns_con clfix">
+			<!-- s:face_book_s-->
+			<div class="face_book_s">
+				<h3><a href="https://www.facebook.com/kkdkorea1937" target="_blank"><img src="./Make Today Special! 크리스피크림도넛_files/h3_title_facebook_gray.png" alt="FACEBOOK" id="sns_tab01"></a></h3>
+				<a href="http://www.krispykreme.co.kr/#" class="tit_tab" onclick="sns_tab(1); return false;"><img src="./Make Today Special! 크리스피크림도넛_files/h3_title_twitter.png" alt="TWITTER" id="sns_tab02"></a>
+				<!-- p class="good" -->
+					<!-- span class="fb_ico"><span id="like_count">0</span>명이 좋아합니다.</span -->
+				<!-- /p-->
+				<!-- p class="good_iframe"-->
+					<p style="height:24px;">
+					</p>
+				<!-- /p -->
+				<div id="list_fb" style="display:none">
+				</div>
+				<div id="list_tw" style="display:block; padding:0px;">
+											<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 600px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;" data-widget-id="profile:KrispyKremeKr" title="트위터 타임라인" src="./Make Today Special! 크리스피크림도넛_files/saved_resource.html"></iframe>
+											<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+			</div>
+			<!-- e:face_book_s-->
+			<!-- s:twitter_s-->
+			<div class="coupon">
+				<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_title_eatz.png" alt="LOTTE EATZ"></h3>
+				<!-- <div class="coupon_cont">
+					<p class="tit">
+						쇼핑몰에서 만나는 <strong>모바일 쿠폰</strong>
+					</p>
+					<a href="#" id="prev_coupon"><img src="/images/main/prev_coupon.png" alt="" /></a>
+					<a href="#" id="next_coupon"><img src="/images/main/next_coupon.png" alt="" /></a>
+					<ul class="mcoupon_list">
+						<li class="on">
+							<a href="#" class="col ban_cont">롯데닷컴 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://www.lotte.com/search/searchMain.lotte?tq=&PAGECOUNT=84&init=Y&requery=%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%94%BC%ED%81%AC%EB%A6%BC&MULTISHOPCATES=LVL1_CATE_NO&SRCHFIELD=&tracking=MH_SEARCH&imgSearchVal=http%3A%2F%2Fwww.lotte.com%2Fplanshop%2FviewPlanShopDetail.lotte%3Fspdp_no%3D5405918%26tclick%3Dsrc_keyword32&dpml_no=1&site_no=1&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%94%BC%ED%81%AC%EB%A6%BC" target="_blank"><img src="/images/main/coupon_l.gif" alt="롯데닷컴" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">Gmarket 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://search.gmarket.co.kr/search.aspx?selecturl=total&sheaderkey=&gdlc=&SearchClassFormWord=goodsSearch&keywordOrg=%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%AE&keywordCVT=%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%B2%B5%B5%B3%D3%2C%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%B2&keywordCVTi=1&keyword=%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%B2" target="_blank"><img src="/images/main/coupon_g.gif" alt="Gmarket" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">G9 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://www.g9.co.kr/Display/Search?keyword=%EC%97%94%EC%A0%9C%EB%A6%AC%EB%84%88%EC%8A%A4" target="_blank"><img src="/images/main/coupon_g9.gif" alt="G9" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">11번가 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://search.11st.co.kr/SearchPrdAction.tmall?method=getTotalSearchSeller&isGnb=Y&prdType=&category=&cmd=&pageSize=&lCtgrNo=&mCtgrNo=&sCtgrNo=&dCtgrNo=&fromACK=&semanticFromGNB=&gnbTag=TO&schFrom=&schFrom=&ID=&ctgrNo=&srCtgrNo=&keyword=&adUrl=&adKwdTrcNo=&adPrdNo=&targetTab=T&kwd=%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%B2#chkCtglNo%%117025%%e쿠폰/상품권%%lCtgrNo" target="_blank"><img src="/images/main/coupon_11.gif" alt="11번가" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">옥션 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://search.auction.co.kr/search/search.aspx?keyword=%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%B2&itemno=&nickname=&arraycategory=&frm=&dom=auction&isSuggestion=No&retry=&Fwk=%C5%A9%B8%AE%BD%BA%C7%C7%C5%A9%B8%B2&acode=SRP_SU_0100&encKeyword=%25ED%2581%25AC%25EB%25A6%25AC%25EC%258A%25A4%25ED%2594%25BC%25ED%2581%25AC%25EB%25A6%25BC" target="_blank"><img src="/images/main/coupon_a.gif" alt="AUCTION" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">티몬 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://search.ticketmonster.co.kr/search/?keyword=%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%94%BC%ED%81%AC%EB%A6%BC&thr=ts" target="_blank"><img src="/images/main/coupon_t.gif" alt="TIMON" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">위메프 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://search.wemakeprice.com/search?search_cate=top&search_keyword=%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%94%BC%ED%81%AC%EB%A6%BC%EB%8F%84%EB%84%9B&_service=1&_type=3&_no=2&autocomp=2" target="_blank"><img src="/images/main/coupon_w.gif" alt="위메프" /></a>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="col ban_cont">신세계몰 쿠폰 보기</a>
+							<div class="clfix">
+								<a href="http://www.ssg.com/search.ssg?target=all&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%94%BC%ED%81%AC%EB%A6%BC&brand=2011007520|2000009821|2000009820" target="_blank"><img src="/images/main/coupon_s.gif" alt="신세계몰" /></a>
+							</div>
+						</li>
+					</ul>
+				</div> -->
+				<a href="https://www.lotteeatz.com/" target="_blank"><img src="./Make Today Special! 크리스피크림도넛_files/banner_eatz.gif" alt="롯데리아, 엔제리너스, 크리스피크림도넛, TGIF의 배달/주문/할인 이벤트를 한번에!"></a>
+			</div>
+			<!-- e:twitter_s-->
+			<!-- s:instagram_s-->
+			<div class="instagram_s">
+				<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_title_instgram.png" alt="INSTAGRAM"></h3>
+				<div class="instagram_cont">
+					<p class="qr"><img src="./Make Today Special! 크리스피크림도넛_files/qr_instgram.png" alt="INSTAGRAM QR"></p>
+					<img src="./Make Today Special! 크리스피크림도넛_files/txt_instgram.png" alt="공식 인스타그램 오픈!!">
+				</div>
+			</div>
+			<!-- e:instagram_s-->
+		</div>
+	</div>
+	<!-- e:sns_wrap -->
+
+</div>
+
+<!-- s:footer include area -->
+<!-- <div class="banner_pkmon">
+	<a href="/etc/pokemonGo.asp" target="_self"><img src="/images/event/banner_pkmon.png" alt="Pokémon 크리스피 크림 도넛과 Pokémon GO의 만남" /></a>
+</div> -->
+<h2 class="hide_text">하단 푸터 영역</h2>
+<div id="footer">
+	<div class="footer_wrap">
+		<div class="footer_content clfix">
+			<div class="fc01">
+				<ul class="footer_menu clfix">
+					<li class="first_child"><a href="http://www.lottegrs.com/" target="_blank" title="새 창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu09.gif" alt="회사소개"></a></li><!-- 20130909 -->
+					<li><a href="http://www.krispykreme.co.kr/recruit/recruit_info.asp"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu05.gif" alt="채용정보"></a></li>
+					<!-- <li><a href="/brand/brand_card.asp"><img src="/images/common/footer_menu04.gif" alt="제휴카드" /></a></li> -->
+					<li><a href="http://www.krispykreme.co.kr/footer/using_term.asp"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu01.gif" alt="이용약관"></a></li>
+					<li><a href="http://www.krispykreme.co.kr/footer/using_personinfo.asp"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu02.gif" alt="개인정보취급방침"></a></li>
+					<li><a href="http://www.krispykreme.co.kr/footer/using_media.asp"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu10.gif" alt="영상정보 처리기기 운영 및 관리 방침"></a></li>
+					<li><a href="http://www.krispykreme.co.kr/footer/using_emailreject.asp"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu03.gif" alt="이메일무단수집거부"></a></li>
+					<li><a href="http://www.krispykreme.co.kr/popup/pop_contactus.asp" onclick="window.open(this.href, &#39;popup_sinmungo&#39;, &#39;width=480,height=721,scrollbars=yes&#39;); return false;" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_menu08.gif" alt="CONTACT US"></a></li>
+				</ul>
+				<ul class="footer_txt clfix">
+					<li class="txt01"><img src="./Make Today Special! 크리스피크림도넛_files/footer_adress_new.gif" alt="서울특별시 용산구 한강대로71길 47 대표문의 : 02-709-1114 (가맹문의, 행사안내 등) 고객지원센터 080-023-9776 (고객불편사항 등) 사업자번호 : 106-81-23498 대표자 : 남익우"></li>
+					<li class="txt02"><img src="./Make Today Special! 크리스피크림도넛_files/footer_copyright.gif" alt="COPYRIGHT © 2013 KRISPY KREME DOUGHNUTS. ALL RIGHTS RESERVED"></li>
+				</ul>
+			</div>
+			<div class="fc02">
+
+				<ul class="family_list01 clfix" style="width:362px">
+					<!--
+					<li><a href="javascript:alert('준비중입니다.');" title=""><img src="/images/common/btn_foot_english.gif" alt="ENGLISH" /></a></li>
+					-->
+					<li class="btn_world_wide"><a href="http://www.krispykreme.co.kr/#none" title="" class="on_pannel"><img src="./Make Today Special! 크리스피크림도넛_files/btn_foot_worldwide.gif" alt="WORLD WIDE"></a>
+						<div class="world_pannel">
+							<h3><img src="./Make Today Special! 크리스피크림도넛_files/h3_worldwide.gif" alt="WORLD WIDE"></h3>
+							<p>
+								총 26개국의 나라에서 크리스피크림은 언제나 고객님들과 함께 만나고 있습니다.
+							</p>
+							<div class="world_mapsec">
+								<!-- s:20130902 수정 -->
+								<div class="map_sec">
+									<dl>
+										<dt class="hide_text">유럽</dt>
+										<dd>
+											<ul>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot01"><span>영국</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot09"><span>러시아</span></a></li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="hide_text">중동</dt>
+										<dd>
+											<ul>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot02"><span>터키</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot03"><span>레바논</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot04"><span>쿠웨이트</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot05"><span>사우디아라비아</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot06"><span>바레인</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot07"><span>아랍에미레이트</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot08"><span>카타르</span></a></li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="hide_text">아시아</dt>
+										<dd>
+											<ul>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot10"><span>중국</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot11"><span>인도</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot12"><span>태국</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot13"><span>싱가포르</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot14"><span>말레이시아</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot15"><span>인도네시아</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot16"><span>한국</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot17"><span>일본</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot18"><span>타이완</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot19"><span>필리핀</span></a></li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="hide_text">오세아니아</dt>
+										<dd>
+											<ul>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot20"><span>호주</span></a></li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="hide_text">북아메리카</dt>
+										<dd>
+											<ul>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot21"><span>캐나다</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot22"><span>미국</span></a></li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="hide_text">남아메리카</dt>
+										<dd>
+											<ul>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot23"><span>푸에르토리코</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot24"><span>멕시코</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot25"><span>도미니카공화국</span></a></li>
+												<li><a href="http://www.krispykreme.co.kr/#none" class="spot26"><span>브라질</span></a></li>
+											</ul>
+										</dd>
+									</dl>
+								</div>
+								<!-- e:20130902 수정 -->
+							</div>
+							<a href="http://www.krispykreme.co.kr/#none" class="off_pannel"><img src="./Make Today Special! 크리스피크림도넛_files/btn_pannel_close.png" alt="닫기"></a>
+						</div>
+					</li>
+					<li class="btn_world_wide">
+						<span class="wrap_sel">
+							<select title="LOTTE FAMILY SITE" id="go_fam">
+								<option value="http://www.lotte.co.kr">롯데그룹</option>
+								<option value="http://www.lottegrs.com">LOTTE GRS</option>
+								<option value="http://www.lotteria.com">롯데리아</option>
+								<option value="http://www.lotteriamall.com">&nbsp;- 롯데리아몰</option>
+								<option value="http://www.angelinus.com">엔제리너스 커피</option>
+								<option value="http://shop.angelinus.com">&nbsp;- 엔제리너스 커피 몰</option>
+								<option value="http://www.krispykreme.co.kr">크리스피 크림 도넛</option>
+								<!-- <option value="http://www.natuur-pop.com">나뚜루팝</option> -->
+								<option value="http://www.tgif.co.kr">티지아이프라이데이스</option>
+								<option value="http://www.lpoint.com">L.POINT</option>
+								<option value="http://job.lotte.co.kr">롯데채용센터</option>
+								<option value="http://www.lotteconf.co.kr">롯데제과</option>
+								<option value="http://www.pepero.co.kr">&nbsp;- 빼빼로</option>
+								<option value="http://www.lottehealth1.com">&nbsp;- 헬스원</option>
+								<option value="http://www.natuur.co.kr">&nbsp;- 나뚜루</option>
+								<option value="http://company.lottechilsung.co.kr">롯데칠성음료</option>
+								<option value="http://mall.lottechilsung.co.kr/index.html">&nbsp;- 롯데칠성몰</option>
+								<option value="http://www.lottefoods.co.kr">롯데푸드</option>
+								<option value="http://www.pasteur.co.kr">&nbsp;- 파스퇴르</option>
+								<option value="http://www.pasteurmall.com">&nbsp;- 파스퇴르몰</option>
+								<option value="http://www.pasteuri.com">&nbsp;- 파스퇴르아이</option>
+								<option value="http://www.chefood.co.kr">&nbsp;- 쉐푸드</option>
+								<option value="http://www.en-nature.co.kr">&nbsp;- 엔네이처</option>
+								<option value="http://www.lottevienna.co.kr">&nbsp;- 롯데비엔나</option>
+								<option value="http://www.kisstick.co.kr">&nbsp;- 키스틱</option>
+								<option value="http://www.uiseongham.co.kr">&nbsp;- 의성마늘햄</option>
+								<!-- <option value="http://www.benecol.co.kr">&nbsp;- 베네콜</option> -->
+								<option value="http://www.lotteliquor.com">롯데주류BG </option>
+								<option value="http://www.wine.co.kr">&nbsp;- WINE</option>
+								<!-- <option value="http://www.kloudbeer.com">&nbsp;- 클라우드</option> -->
+								<option value="http://www.lotteasahi.co.kr">롯데아사히주류</option>
+								<option value="http://www.lotteliquor.com/">롯데칠성주류</option>
+								<option value="http://store.lotteshopping.com">롯데백화점</option>
+								<option value="http://www.ellotte.com">&nbsp;- 엘롯데</option>
+								<option value="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=021&amp;gubun=2">&nbsp;- 영플라자</option>
+								<option value="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=054&amp;gubun=1">&nbsp;- 프리미엄아울렛</option>
+								<option value="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=057">&nbsp;- 롯데아울렛</option>
+								<option value="http://buying.lotteshopping.com">&nbsp;- 상품본부</option>
+								<!-- <option value="http://lotteedi.dpt.co.kr">&nbsp;- EDI시스템</option> -->
+								<option value="https://www.lotteshopping.com/main/main">에비뉴엘</option>
+								<option value="http://www.lottemart.com">롯데마트</option>
+								<option value="http://company.lottemart.com">&nbsp;- 롯데마트 홍보</option>
+								<option value="http://www.e-himart.co.kr">롯데하이마트</option>
+								<option value="http://www.vic-market.com">&nbsp;- 롯데하이마트 홍보</option>
+								<option value="http://toysrus.lottemart.com">토이저러스</option>
+								<option value="http://www.lottesuper.co.kr">롯데슈퍼</option>
+								<option value="http://www.vic-market.com">롯데빅마켓</option>
+								<option value="http://www.lottecinema.co.kr">롯데시네마</option>
+								<option value="http://www.lotteimall.com ">롯데홈쇼핑</option>
+								<option value="http://www.7-eleven.co.kr">코리아세븐</option>
+								<option value="https://store-kr.uniqlo.com/">유니클로</option>
+								<option value="http://www.muji.com">무인양품</option>
+								<option value="http://www.lotteintl.co.kr">롯데상사</option>
+								<option value="http://www.lotte.com">롯데닷컴</option>
+								<option value="http://www.lottelmsc.com">롯데유통사업본부</option>
+								<option value="http://www.charlottetheater.co.kr">샤롯데씨어터</option>
+								<option value="http://www.lohbs.co.kr">H&amp;B(롭스)</option>
+								<option value="http://www.lottefitin.com">롯데피트인</option>
+								<option value="http://www.lottehotel.com">롯데호텔</option>
+								<option value="http://kr.lottedfs.com">롯데면세점</option>
+								<option value="http://www.lottedfs.com">롯데인터넷면세점</option>
+								<option value="http://www.busanlottedfs.com">부산롯데인터넷면세점</option>
+								<option value="http://www.lotteworld.com">롯데월드</option>
+								<option value="http://www.lotteworld.com/waterpark/index.asp">&nbsp;- 워터파크</option>
+								<option value="http://www.lotteworld.com/aquarium/index.asp">&nbsp;- 아쿠아리움</option>
+								<option value="http://www.lottecorp.com">롯데물산</option>
+								<option value="http://www.lwt.co.kr">롯데월드타워&amp;몰</option>
+								<option value="http://gimpoairport.lottemall.co.kr">롯데몰 김포공항점</option>
+								<option value="http://www.lottejtb.com">롯데제이티비</option>
+								<option value="http://www.lotteins.co.kr">롯데손해보험</option>
+								<option value="http://www.3655.co.kr">&nbsp;- 롯데하우머치</option>
+								<option value="http://www.lottecard.co.kr">롯데카드</option>
+								<option value="http://www.lottecap.com">롯데캐피탈</option>
+								<option value="http://www.lottecon.co.kr">롯데건설</option>
+								<option value="http://www.lottecastle.co.kr">&nbsp;- 롯데캐슬</option>
+								<option value="http://www.fujifilm.co.kr  ">한국후지필름</option>
+								<option value="http://shop.fujifilm.co.kr">&nbsp;- 후지필름쇼핑몰</option>
+								<option value="http://www.astalift.co.kr/">&nbsp;- 아스타리프트</option>
+								<option value="http://www.lotteal.co.kr">롯데알미늄</option>
+								<option value="http://www.lotteelife.co.kr">&nbsp;- 롯데이라이프</option>
+								<option value="http://www.lottechem.com">롯데케미칼</option>
+								<option value="http://www.lottemrc.com">롯데엠시시</option>
+								<option value="http://www.canon-bs.co.kr">캐논코리아 비즈니스솔루션</option>
+								<option value="http://www.lottelem.co.kr">롯데기공</option>
+								<option value="http://www.lotteacademy.co.kr">롯데인재개발원</option>
+								<option value="http://ez.lotteacademy.co.kr">사이버 인재개발원</option>
+								<option value="http://www.ldcc.co.kr">롯데정보통신</option>
+								<option value="http://www.giantsclub.com">롯데자이언츠</option>
+								<option value="http://www.skyhill.co.kr">롯데스카이힐C.C</option>
+								<option value="https://www.lotteresortsokcho.com">롯데리조트 속초</option>
+								<option value="http://www.lottebuyeoresort.com">롯데리조트 부여</option>
+								<option value="http://www.lottejejuresort.com/">롯데리조트 제주</option>
+								<option value="http://www.daehong.com">대홍기획</option>
+								<option value="http://www.cashbee.co.kr">캐시비</option>
+								<option value="http://www.mybi.co.kr">마이비</option>
+								<option value="http://www.lotternd.com">롯데중앙연구소</option>
+								<option value="http://www.llc.co.kr">롯데로지스틱스</option>
+								<option value="http://www.lottefoundation.or.kr">롯데재단</option>
+								<option value="http://www.lotterentacar.net">롯데렌터카</option>
+								<option value="http://www.lotteconcerthall.com/">롯데콘서트홀</option>
+							</select>
+						</span>						
+						<a href="javascript:void(0)" onclick="window.open($(&#39;#go_fam&#39;).val())"><img src="./Make Today Special! 크리스피크림도넛_files/btn_go.gif" alt="패밀리 사이트 새창으로 이동" style="vertical-align:middle"></a>
+					</li>
+				</ul>
+
+				<div class="family_list02">
+					<a href="http://www.lotteria.com/" target="_blank" class="ico_family" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_ico01.gif" alt="Lotteria"></a>
+					<a href="http://www.angelinus.co.kr/" target="_blank" class="ico_family" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_ico02.gif" alt="Angel in us coffee"></a>
+					<a href="http://www.tgif.co.kr/" target="_blank" class="ico_family" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_ico03.gif" alt="T.G.I Friday&#39;s"></a>
+					<!-- <a href="http://www.natuur.co.kr" target="_blank" class="ico_family" title="새창 열림"><img src="/images/common/footer_ico04.gif" alt="Natuur Pop" /></a> -->
+					<a href="http://www.facebook.com/kkdkorea1937" target="_blank" class="ico_facebook" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_facebook.gif" alt="크리스피크림도넛 페이스북"></a>
+					<a href="http://twitter.com/krispykremekr" target="_blank" class="ico_twitter" title="새창 열림"><img src="./Make Today Special! 크리스피크림도넛_files/footer_twitter.gif" alt="크리스피크림도넛 트위터"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+	$('.on_pannel').bind('click',function(e){
+		e.preventDefault();
+
+		$('#footer').addClass('on');
+
+		$('#footer').animate({'padding-top': 725}, {
+			duration: 500
+			, step: function(){
+
+				$("html, body").scrollTop($("#footer").offset().top - 30);
+
+			}
+			, complete: function(){
+
+				$('.world_pannel').show();
+
+			}
+		});
+
+	});
+
+	$('.off_pannel').bind('click',function(e){
+		e.preventDefault();
+
+		$('.world_pannel').hide();
+
+		$('#footer').animate({'padding-top':'0'},300,function(){
+
+			$('#footer').removeClass('on');
+
+		});
+
+		$('.on_pannel').focus();
+
+	});
+
+});
+
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-88656313-7', 'auto');
+  ga('send', 'pageview');
+
+//]]>
+
+
+</script>
+<!-- e:footer include area -->
+
+<div id="fb-root"></div>
+
+<!-- <div class="notice_alert" id="notice_alert" style="position: absolute;top:0;left:0;width:100%;min-width:1024px;height:100%;z-index:10000;">
+	<div style="position: absolute;top:0;left:0;width:100%;height:100%; opacity:0.7;-ms-filter:'alpha(opacity=80)';
+  filter: alpha(opacity=80); background:#000" class="notice_bg" onclick="cls_notice()"></div>
+	<div style="position: absolute;top:100px;left:50%;margin-left:-332px;" >
+		<img src="/images/notice/pop_20190312.gif" alt="" usemap="#map" >
+		<map name="map">
+			<area shape="rect" coords="578,547,664,593" href="javascript:cls_notice();" alt="닫기" target="_self" />
+		</map>
+		<p style="position:absolute; left:30px; bottom:15px"><input type="checkbox" id="today_close" onclick="setCookie('notice_alert','done',1); $('.notice_alert').hide();" />&nbsp;&nbsp;<label for="today_close">오늘 하루 이 창 열지 않기</label></p>
+	</div>
+</div> -->
+<script type="text/javascript">
+<!--
+	function setCookie(name,value,expiredays) {
+	var todayDate = new Date();
+	todayDate.setDate(todayDate.getDate() + expiredays);
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+	}
+
+	$('.notice_alert').height( $('body').height() );
+	function cls_notice(){
+		$('.notice_alert').hide();
+	}
+	function getCookie(name){    
+	var wcname = name + '=';
+	var wcstart, wcend, end;
+	var i = 0;    
+
+	  while(i <= document.cookie.length) {            
+		wcstart = i;  
+		wcend   = (i + wcname.length);            
+		if(document.cookie.substring(wcstart, wcend) == wcname) {                    
+			if((end = document.cookie.indexOf(';', wcend)) == -1)                           
+				end = document.cookie.length;                    
+			return document.cookie.substring(wcend, end);            
+		}            
+
+		i = document.cookie.indexOf('', i) + 1;            
+	  
+		if(i == 0)                    
+			break;    
+	  }    
+	  return '';
+	} 
+	if (getCookie('notice_alert')=="done") {
+		$('#notice_alert').hide();
+	}
+
+
+	cookiedata = document.cookie;
+		if (cookiedata.indexOf("pop_20170517=done") < 0) {
+		//window.open("/popup/pop_20170517.html", "_blank", "toolbar=no,scrollbars=no,resizable=no,top=150,left=500,width=400,height=465");
+	} 
+	
+	function sns_tab(t){
+		var targetElement = null;
+        if (typeof event.target != 'undefined'){
+            targetElement = event.target;
+        }else{
+            targetElement = event.srcElement;
+        }
+		var src=targetElement.src;
+		document.getElementById("sns_tab01").setAttribute("src", document.getElementById("sns_tab01").src.replace("_gray","").replace(".png","_gray.png"));
+		document.getElementById("sns_tab02").setAttribute("src", document.getElementById("sns_tab02").src.replace("_gray","").replace(".png","_gray.png"))
+		if(t==0) {
+			document.getElementById("list_fb").style.display = "block";
+			document.getElementById("list_tw").style.display = "none";
+		}else{
+			document.getElementById("list_fb").style.display = "none";
+			document.getElementById("list_tw").style.display = "block";	
+		}
+		src = targetElement.src.replace("_gray.png", ".png");
+		targetElement.setAttribute("src", src);
+	}
+	var c_t = 0;
+	var c_length = $(".mcoupon_list li").length;
+	$("#prev_coupon").on("click", function(){
+		if(c_t<=0){c_t=c_length}
+		c_t = c_t-1
+		$(".mcoupon_list li").eq(c_t).find(".ban_cont").trigger("click")
+		return false;
+	})
+	$("#next_coupon").on("click", function(){
+		c_t = c_t+1
+		if(c_t>=c_length){c_t=0}
+		$(".mcoupon_list li").eq(c_t).find(".ban_cont").trigger("click")
+		return false;
+	})
+//-->
+</script>
+
+
+
+<!--
+	start : 
+	end : 
+	time : 
+--><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Make Today Special! 크리스피크림도넛_files/widget_iframe.96fd96193cc66c3e11d4c5e4c7c7ec97.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Make Today Special! 크리스피크림도넛_files/saved_resource(1).html"></iframe></body></html>
