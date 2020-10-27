@@ -98,7 +98,7 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
-/*-----prev-next-----*/
+/*-----메인 비쥬얼 prev-next-----*/
 .slide_wrap,
 .br_wrap {
     ul {
@@ -144,7 +144,7 @@
             position: absolute;
             left: 50%; bottom: 5%;
             transform: translate(-50%, -5%);
-            li {
+            > li {
                 display: inline-block;
                 margin: 0 3px;
                 button {
@@ -166,8 +166,40 @@
     }
 }
 
+/*-----이벤트 prev-next-----*/
+.event_slide {
+    .slick-slide {
+    margin: 0 5px 0 5px;
+    }
+}
 
+.event_slide {
+    .slick-dots {
+        margin-top: 1rem;
+        text-align: center;
+        > li {
+            display: inline-block;
+            margin: 0 3px;
+            border: none;
+            button {
+                width: 6px; height: 6px;
+                font-size: 0;
+                border: none;
+                border-radius: 100%;
+                background-color: #c1ae96;
+                padding: 0;
+            }
 
+            &.slick-active {
+                button {
+                    width: 10px; height: 10px;
+                    background-color: #75675c;
+                    outline: none;
+                }
+            }
+        }
+    }
+}
 
 // /*----indicator----*/
 // .s_v1 .slick-dots{
