@@ -6,6 +6,7 @@ $(function() {
         $('.br_wrap').css({
             visibility:'visible'
         })
+        $('.br_wrap').addClass('active');
         $('.slide_wrap ul').slick('slickPause');
     });
 

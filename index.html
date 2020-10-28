@@ -10,9 +10,11 @@
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="slick/slick.css"rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">  
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="slick/slick.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/index.js"></script>
 </head>
 
@@ -35,7 +37,7 @@
             <div class="content1">
                 <div class="content_inner">
                     <h1 class="logo"><a href='#'>logo</a></h1>
-                    <div class="sns">
+                    <div class="header_sns">
                         <ul>
                             <li><a href='#'>FACEBOOK</a></li>
                             <li><a href='#'>BLOG</a></li>
@@ -312,7 +314,7 @@
                                 Dunkin' will be a sweet friend to you.</p>
                         </div>
                         <ul class="menu_list">
-                            <li class="donuts">
+                            <li class="donuts" data-aos="zoom-in-up" data-aos-delay="500">
                                 <div class="txt_wrap">
                                     <p class="title_eng">Special donuts</p>
                                     <p class="desc">달콤함으로 채운<br>특별한 크리스피 크림 도넛</p>
@@ -320,7 +322,7 @@
                                 </div>
                                 <div class="img_wrap"><img src="img/bn_m_product_donut.png" alt="product"></div>
                             </li>
-                            <li class="share">
+                            <li class="share" data-aos="zoom-in-left" data-aos-delay="500">
                                 <div class="txt_wrap">
                                     <p class="title_eng">Share the love</p>
                                     <p class="desc">함께할 때 더 즐거운<br>크리스피 크림</p>
@@ -328,7 +330,7 @@
                                 </div>
                                 <div class="img_wrap"><img src="img/bn_m_product_sharethelove.png" alt="product"></div>
                             </li>
-                            <li class="beverage">
+                            <li class="beverage" data-aos="zoom-in-right" data-aos-delay="500">
                                 <div class="txt_wrap">
                                     <p class="title_eng">Beverage</p>
                                     <p class="desc">달콤하고 부드러운 음료를 만나보세요</p>
@@ -336,41 +338,181 @@
                                 </div>
                                 <div class="img_wrap"><img src="img/bn_m_product_beverage.png" alt="product"></div>
                             </li>
-                            <li class="coffee">
+                            <li class="coffee" data-aos="zoom-in" data-aos-delay="500">
                                 <div class="txt_wrap">
                                     <p class="title_eng">Coffee</p>
-                                    <p class="desc">도넛과 함께 즐기는 최고급 커피</p>
+                                    <p class="desc">도넛과 함께 즐기는 최고급 커피<br>향과 풍미가 가득한<br>커피를 즐겨보세요</p>
                                     <a href='#'>MORE</a>
                                 </div>
                                 <div class="img_wrap"><img src="img/bn_m_product_coffee.png" alt="product"></div>
                             </li>
-                            <li class="icecream">
+                            <li class="icecream" data-aos="zoom-in-down" data-aos-delay="500">
                                 <div class="txt_wrap">
                                     <p class="title_eng">Ice Cream</p>
-                                    <p class="desc">크리스피 크림 도넛의 특별한 디저트! 신선한 아이스크림을 즐겨보세요.</p>
+                                    <p class="desc">크리스피 크림 도넛의 특별한 디저트!<br>신선한 아이스크림을 즐겨보세요.</p>
                                     <a href='#'>MORE</a>
                                 </div>
                                 <div class="img_wrap"><img src="img/bn_m_product_icecream.png" alt="product"></div>
                             </li>
-                            <li class="gift">
+                            <li class="gift" data-aos="zoom-in-left" data-aos-delay="500">
                                 <div class="txt_wrap">
                                     <p class="title_eng">Gift</p>
-                                    <p class="desc">크리스피 크림 도넛으로 소중한 마음을 전달하세요</p>
+                                    <p class="desc">크리스피 크림 도넛으로<br>소중한 마음을 전달하세요</p>
                                     <a href='#'>MORE</a>
                                 </div>
                                 <div class="img_wrap"><img src="img/bn_m_product_gift.png" alt="product"></div>
                             </li>
                         </ul>
                 </section>
+                <section class="store">
+                    <div class="store_wrap">
+                        <a href='#' class="find"></a>
+                        <a href='#' class="catering"></a>
+                    </div>
+                </section>
+
+                <section class="main_sns">
+                    <div class="sns_wrap">
+                        <h2><img src="img/tit_dunkin_sns.png" alt="title"></h2>
+                        <div class="sns_txt">
+                            <strong>크리스피 크림 도넛과 함께하는 SNS</strong>
+                            <ul class="sns_img">
+                                <li class="facebook"><a href='#'></a></li>
+                                <li class="instagram"><a href='#'></a></li>
+                                <li class="blog"><a href='#'></a></li>
+                                <li class="youtube"><a href='#'></a></li>
+                                <li class="twitter"><a href='#'></a></li>
+                            </ul>
+                        </div>
+                        <div class="sns_list">
+                            <div class="list_wrap">
+                                <ul class="img_wrap">
+                                    <li><a href='#'><img src="img/bn_m_sns_1.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_2.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_3.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_4.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_5.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_6.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_7.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_8.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_9.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_10.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_11.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_12.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_13.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_14.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_15.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_16.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_17.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_18.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_19.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_20.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_21.jpg" alt="sns"></a></li>
+                                    <li><a href='#'><img src="img/bn_m_sns_22.jpg" alt="sns"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
-
         </div>
-
-
     </main>
 
     <footer>
+        <div class="inner">
+            <div class="footer_info">
+                <h1><img src="img/logo_bg.png" alt="krispykremedonuts">"</h1>
+                <p class="adress">서울특벽시 용산구 한강대로71길 47</p>
+                <div>
+                    <p>사업자 등록번호: 106-81-23498</p>
+                    <p>대표이사: 남익우</p>
+                </div>
+                <div>
+                    <p>TEL: 02-709-1114</p>
+                    <P>개인정보관리책임자</P>
+                </div>
+                <p class="copyright">COPYRIGHT © 2013 KRISPY KREME DOUGHNUTS.<br>ALL RIGHTS RESERVED</p>
+                <nav class="familysite">
+                    <button type="button">FAMILY SITE
+                        <ul>
+                            <li><a href='#'>롯데그룹</a></li>
+                            <li><a href='#'>LOTTE GRS</a></li>
+                            <li><a href='#'>롯데리아</a><F/li>
+                            <li><a href='#'>엔제리너스커피</a></li>
+                            <li><a href='#'>TGI FRIDAYS</a></li>
+                        </ul>
+                    </button>
+                    
+                </nav>
+            </div>
+            <div class="footer_menu">
+                <nav class="sitemap">
+                    <div class="menu_1">
+                        <ul>
+                            <li><a href='#'>MENU</a>
+                            <ul>
+                                <li><a href='#'>DONUT</a></li>
+                                <li><a href='#'>MEAL</a></li>
+                                <li><a href='#'>COFFEE</a></li>
+                                <li><a href='#'>BEVERAGE</a></li>
+                                <li><a href='#'>OTHERS</a></li>
+                            </ul></li>
+                            <li><a href='#'>EVENT</a>
+                                <ul>
+                                    <li><a href='#'>매장 프로모션</a></li>
+                                    <li><a href='#'>온라인 이벤트</a></li>
+                                    <li><a href='#'>당첨자 발표</a></li>
+                                </ul></li>
+                            <li><a href='#'>STORE</a>
+                                <ul>
+                                    <li><a href='#'>오프라인 STORE</a></li>
+                                    <li><a href='#'>온라인 STORE</a></li>
+                                    <li><a href='#'>가맹점 개설 안내</a></li>
+                                </ul></li>
+                            <li><a href='#'>BRAND</a>
+                                <ul>
+                                    <li><a href='#'>브랜드 소개</a></li>
+                                    <li><a href='#'>뉴스 & 공지</a></li>
+                                    <li><a href='#'>CF</a></li>
+                                </ul></li>
+                        </ul>
+                    </div>
+                    <div class="menu_2">
+                        <ul>
+                            <li><a href='#'>로그인</a></li>
+                            <li><a href='#'>회원가입</a></li>
+                            <li><a href='#'>고객센터</a></li>
+                            <li><a href='#'>가맹점 개설 안내</a></li>
+                            <li><a href='#'>영양정보</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="footer_sns">
+                    <ul>
+                        <li class="facebook"><a href='#'></a></li>
+                        <li class="instagram"><a href='#'></a></li>
+                        <li class="blog"><a href='#'></a></li>
+                        <li class="youtube"><a href='#'></a></li>
+                        <li class="twitter"><a href='#'></a></li>
+                    </ul>
+                </div>
+                <nav class="policy">
+                    <ul>
+                        <li><a href='#'>회사소개</a></li>
+                        <li><a href='#'>채용정보</a></li>
+                        <li><a href='#'>이용약관</a></li>
+                        <li><a href='#'>개인정보처리방침</a></li>
+                        <li><a href='#'>영상정보처리기기운영관리방침</a></li>
+                        <li><a href='#'>이메일무단집거부</a></li>
+                        <li><a href='#'>CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </footer>
+    <script>
+        AOS.init();
+      </script>
 </body>
 
 </html>
