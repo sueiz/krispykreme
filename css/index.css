@@ -336,8 +336,16 @@ header.active .content2 .service {
   width: 40%;
 }
 
-.ad_dom .content_inner .monthly_donuts ul li {
-  display: inline-block;
+.ad_dom .content_inner .monthly_donuts ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .ad_dom .content_inner .monthly_donuts ul li a img {
@@ -888,10 +896,11 @@ main .container .main_wrap {
 
 .banner_bg .scroll_txt1 {
   position: absolute;
-  left: 45%;
+  left: 0%;
   top: 30%;
-  -webkit-transition: all 0.7s ease-out;
-  transition: all 0.7s ease-out;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  opacity: 0;
 }
 
 .banner_bg .scroll_txt1 img {
@@ -900,14 +909,25 @@ main .container .main_wrap {
 
 .banner_bg .scroll_txt2 {
   position: absolute;
-  left: 35%;
-  top: 50%;
-  -webkit-transition: all 0.7s ease-out;
-  transition: all 0.7s ease-out;
+  left: 0%;
+  top: 55%;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  opacity: 0;
 }
 
 .banner_bg .scroll_txt2 img {
   width: 100%;
+}
+
+.banner_bg.active .scroll_txt1 {
+  left: 30%;
+  opacity: 1;
+}
+
+.banner_bg.active .scroll_txt2 {
+  left: 35%;
+  opacity: 1;
 }
 
 /* 크리스피 크림 도넛 메뉴 */
@@ -995,7 +1015,7 @@ main .container .main_wrap {
 }
 
 .product .product_wrap .menu_list .share {
-  background-color: #c8bfb0;
+  background-color: #2c1810;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   width: 25%;
@@ -1014,10 +1034,12 @@ main .container .main_wrap {
 
 .product .product_wrap .menu_list .share .txt_wrap .title_eng {
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .product .product_wrap .menu_list .share .txt_wrap .desc {
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .product .product_wrap .menu_list .share .txt_wrap a {
@@ -1039,7 +1061,7 @@ main .container .main_wrap {
 }
 
 .product .product_wrap .menu_list .beverage {
-  background-color: #c8bfb0;
+  background-color: #ab9b7f;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   width: 30%;
@@ -1083,7 +1105,7 @@ main .container .main_wrap {
 }
 
 .product .product_wrap .menu_list .coffee {
-  background-color: #c8bfb0;
+  background-color: #fff;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   width: 35%;
@@ -1175,7 +1197,7 @@ main .container .main_wrap {
 }
 
 .product .product_wrap .menu_list .gift {
-  background-color: #c8bfb0;
+  background-color: #e5d8bc;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   width: 25%;
@@ -1239,21 +1261,20 @@ main .container .main_wrap {
   position: absolute;
   left: 30%;
   top: -10%;
-  -webkit-animation: rotation 5s infinite;
-          animation: rotation 5s infinite;
+  opacity: 0;
 }
 
 @-webkit-keyframes rotation {
-  50% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }
 
 @keyframes rotation {
-  50% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }
 
@@ -1265,8 +1286,23 @@ main .container .main_wrap {
   position: absolute;
   left: 50%;
   top: 20%;
-  -webkit-animation: rotation 5s infinite;
-          animation: rotation 5s infinite;
+  opacity: 0;
+}
+
+.store .store_wrap.active .find {
+  -webkit-animation: rotation 1s 1 ease;
+          animation: rotation 1s 1 ease;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  opacity: 1;
+}
+
+.store .store_wrap.active .catering {
+  -webkit-animation: rotation 1s 1 ease;
+          animation: rotation 1s 1 ease;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  opacity: 1;
 }
 
 /* sns */

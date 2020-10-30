@@ -82,6 +82,22 @@ $(function() {
         nextArrow: false
       });
 
+      $(window).scroll(function(){
+        var winH = $(window).height()/2;
+        console.log(winH)
+        if( $(this).scrollTop() > $('.banner_bg').offset().top - winH ){
+            $('.banner_bg').addClass('active');
+        }else {
+            $('.banner_bg').removeClass('active');
+        }
+
+        if( $(this).scrollTop() > $('.store_wrap').offset().top - winH ){
+            $('.store_wrap').addClass('active');
+        }else {
+            $('.store_wrap').removeClass('active');
+        }
+    })
+
 
 });
 

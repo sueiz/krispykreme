@@ -1,3 +1,4 @@
+
 header {
     position: fixed;
     top: 0; left: 0;
@@ -328,8 +329,10 @@ header {
             margin: 0 auto;
             width: 40%;
             ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 li {
-                    display: inline-block;
                     a {
                         img {
                             width: 100%;
@@ -784,19 +787,32 @@ main {
     position: relative;
     .scroll_txt1 {
         position: absolute;
-        left: 45%; top: 30%;
-        transition: all 0.7s ease-out;
+        left: 0%; top: 30%;
+        transition: all 1s ease-out;
+        opacity: 0;
         img {
             width: 100%;
         }
     }
     .scroll_txt2 {
         position: absolute;
-        left: 35%; top: 50%;
-        transition: all 0.7s ease-out;
+        left: 0%; top: 55%;
+        transition: all 1s ease-out;
+        opacity: 0;
         img {
             width: 100%;
         }
+    }
+    &.active {
+        .scroll_txt1 {
+            left: 30%;
+            opacity: 1;
+        }
+        .scroll_txt2 {
+            left: 35%;
+            opacity: 1;
+        }
+
     }
 }
 
@@ -863,7 +879,7 @@ main {
                 }
             }
             .share {
-                background-color: #c8bfb0;
+                background-color: #2c1810;
                 box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
                 width: 25%;
                 height: 390px;
@@ -875,9 +891,11 @@ main {
                     text-align: center;
                     .title_eng {
                         margin-bottom: 1rem;
+                        color: #fff;
                     }
                     .desc {
                         margin-bottom: 1rem;
+                        color: #fff;
                     }
                     a {
                         padding: .5rem 1rem;
@@ -896,7 +914,7 @@ main {
                 }
             }
             .beverage {
-                background-color: #c8bfb0;
+                background-color: #ab9b7f;
                 box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
                 width: 30%;
                 height: 360px;
@@ -929,7 +947,7 @@ main {
                 }
             }
             .coffee {
-                background-color: #c8bfb0;
+                background-color: #fff;
                 box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
                 width: 35%;
                 height: 270px;
@@ -997,7 +1015,7 @@ main {
                 }
             }
             .gift {
-                background-color: #c8bfb0;
+                background-color: #e5d8bc;
                 box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
                 width: 25%;
                 height: 300px;
@@ -1050,11 +1068,11 @@ main {
             background: url('../img/bn_store.png') no-repeat;
             position: absolute;
             left: 30%; top: -10%;
-            animation: rotation 5s infinite;
+            opacity: 0;
         }
         @keyframes rotation {
-            50% {
-                transform: rotateY(180deg);}
+            100% {
+                transform: rotateY(360deg);}
         }
         .catering {
             width: 350px; height: 350px;
@@ -1062,7 +1080,19 @@ main {
             background: url('../img/bn_catering.png') no-repeat;
             position: absolute;
             left: 50%; top: 20%;
-            animation: rotation 5s infinite;
+            opacity: 0;
+        }
+        &.active {
+            .find {
+                animation: rotation 1s 1 ease;
+                transform-origin: center;
+                opacity: 1;
+            }
+            .catering {
+                animation: rotation 1s 1 ease;
+                transform-origin: center;
+                opacity: 1;
+            }
         }
     }
 }
