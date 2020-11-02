@@ -1,0 +1,115 @@
+@charset 'utf-8';
+
+/* 1024px 이상 */
+@media (min-width: 1024px) {
+
+}
+/* 1024px 이하 */
+@media (max-width: 1024px) {
+    /* 헤더 */
+    header {
+        position: fixed;
+        .content1 {
+            .content_inner {
+                .logo {
+                }
+                width: 100%;
+                .header_sns,
+                .etc {
+                    display: none;
+                }
+                .menu_trigger {
+                    display: block;
+                }
+            }
+        }
+        .content2 {
+            display: none;
+            .content_inner {
+                width: 90%;
+                margin: 0 auto;
+                .service {
+                    left: 5%;
+                }
+            }
+        }
+    }
+
+    /* 메인 비쥬얼 슬라이드 */
+    main {
+        .container {
+            margin: 92px auto;
+        }
+    }
+
+    .main_slide {
+        width: 100%;
+        .brandstory_btn {
+            display: none;
+        }
+        .br_wrap {
+            display: none;
+        }
+    }
+
+    /* 이벤트 */
+    .new_event {
+        width: 95%;
+    }
+
+    /* 메뉴 */
+    .product {
+        width: 95%;
+    }
+
+    .store {
+        .store_wrap {
+            .find {
+                left: 10%;
+
+            }
+            .catering {
+                left: 55%;
+            }
+        }
+    }
+
+    footer {
+        height: auto;
+        .inner {
+            width: 95%;
+            align-items: center;
+            position: relative;
+            .footer_info {
+                width: 40%;
+                div {
+                    p {
+                        float: none;
+                    }
+                }
+                .familysite {
+                    position: absolute;
+                    left: 42%; top: 37%;
+                }
+            }
+            .footer_menu {
+                .sitemap {
+                    display: none;
+                }
+                .policy {
+                    ul {
+                        li {
+                            display: inline-block;
+                            margin-right: .2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+
+}

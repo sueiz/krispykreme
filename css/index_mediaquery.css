@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* 1024px 이상 */
+/* 1024px 이하 */
+@media (max-width: 1024px) {
+  /* 헤더 */
+  header {
+    position: fixed;
+  }
+  header .content1 .content_inner {
+    width: 100%;
+  }
+  header .content1 .content_inner .header_sns,
+  header .content1 .content_inner .etc {
+    display: none;
+  }
+  header .content1 .content_inner .menu_trigger {
+    display: block;
+  }
+  header .content2 {
+    display: none;
+  }
+  header .content2 .content_inner {
+    width: 90%;
+    margin: 0 auto;
+  }
+  header .content2 .content_inner .service {
+    left: 5%;
+  }
+  /* 메인 비쥬얼 슬라이드 */
+  main .container {
+    margin: 92px auto;
+  }
+  .main_slide {
+    width: 100%;
+  }
+  .main_slide .brandstory_btn {
+    display: none;
+  }
+  .main_slide .br_wrap {
+    display: none;
+  }
+  /* 이벤트 */
+  .new_event {
+    width: 95%;
+  }
+  /* 메뉴 */
+  .product {
+    width: 95%;
+  }
+  .store .store_wrap .find {
+    left: 10%;
+  }
+  .store .store_wrap .catering {
+    left: 55%;
+  }
+  footer {
+    height: auto;
+  }
+  footer .inner {
+    width: 95%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+  }
+  footer .inner .footer_info {
+    width: 40%;
+  }
+  footer .inner .footer_info div p {
+    float: none;
+  }
+  footer .inner .footer_info .familysite {
+    position: absolute;
+    left: 42%;
+    top: 37%;
+  }
+  footer .inner .footer_menu .sitemap {
+    display: none;
+  }
+  footer .inner .footer_menu .policy ul li {
+    display: inline-block;
+    margin-right: .2rem;
+  }
+}
+/*# sourceMappingURL=index_mediaquery.css.map */
