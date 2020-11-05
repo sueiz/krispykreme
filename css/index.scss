@@ -14,7 +14,6 @@ header {
             padding: 1rem 0;
             .logo {
                 text-align: center;
-                // padding: 1rem;
                 a {
                     display: inline-block;
                     background: url('../img/logo_bg.png') no-repeat;
@@ -743,10 +742,9 @@ main {
         .event_top {
             display: flex;
             justify-content: space-between;
-            .h2 {
+            h2 {
                 width: 33%;
                 img {
-                    width: 100%;
                 }
             }
             .txt_wrap {
@@ -803,7 +801,7 @@ main {
                         
                         figure {
                             overflow: hidden;
-                            position: relaive;
+                            position: relative;
                             border-bottom: 1px solid #d1cccb;
                             
                             img {
@@ -1136,7 +1134,7 @@ main {
             border-radius: 100%;
             background: url('../img/bn_catering.png') no-repeat;
             position: absolute;
-            left: 50%; top: 20%;
+            right: 30%; top: 20%;
             opacity: 0;
         }
         &.active {
@@ -1166,7 +1164,6 @@ main {
         .sns_txt {
             text-align: center;
             margin: 1.5rem auto;
-            strong {}
             .sns_img {
                 margin: 1.5rem auto;
                 li {
@@ -1289,20 +1286,11 @@ main {
         height: 260px;
         overflow: hidden;
         .list_wrap {
-            width: 5720px;
-            .img_wrap {
-                li {
-                    float: left;
-                    width: 260px;
-                    height: 260px;
-                    overflow: hidden;
-                    a {
-                        display: inline-block;
-                        img {
-                            width: 260px;
-                            display: block;
-                        }
-                    }
+            .img__wrap {
+                width: 5720px;
+                position: absolute;
+                img {
+                    width: 260px; position: absolute;
                 }
             }
         }
@@ -1348,37 +1336,41 @@ footer {
                     margin-bottom: 2rem;
             }
             .familysite {
+                position: relative;
+                width: 150px;
+                &:hover {
+                    button {
+                        background: transparent url('../img/family_size_on.png') no-repeat 100% 0;
+                        border-radius: 0  0 5px 5px;
+                    }
+                    ul {
+                        opacity: 1;
+                    }
+                }
                 button {
+                    width: 100%;
                     font-size: .7em;
                     background: transparent url('../img/family_size_off.png') no-repeat 100% 0;
                     border: 1px solid #fff;
                     border-radius: 5px;
                     color: #fff;
                     padding: .5rem 3rem .5rem 1rem;
-                    position: relative;
                     outline: none;
-                    &:hover {
-                        background: transparent url('../img/family_size_on.png') no-repeat 100% 0;
-                        border-radius: 0  0 5px 5px;
-                        ul {
-                            opacity: 1;
-                        }
-                    }
-                    ul {
-                        position: absolute; 
-                        left: 0; bottom: 100%;
-                        background: rgba(55,35,23,0.8);
-                        width: 100%;
-                        border-radius: 5px 5px 0 0;
-                        border: 1px solid #fff;
-                        opacity: 0;
-                        box-sizing: border-box;
-                        li {
-                            padding: .5rem;
-                            a {
-                                font-size: .7em;
-                                color: #fff;
-                            }
+                }
+                ul {
+                    width: 100%;
+                    position: absolute; 
+                    left: 0; bottom: 100%;
+                    background: rgba(55,35,23,0.8);
+                    border-radius: 5px 5px 0 0;
+                    border: 1px solid #fff;
+                    opacity: 0;
+                    box-sizing: border-box;
+                    li {
+                        padding: .5rem;
+                        a {
+                            font-size: .7em;
+                            color: #fff;
                         }
                     }
                 }
@@ -1486,9 +1478,6 @@ footer {
                     li {
                         display: inline-block;
                         margin-right: 1rem;
-                        &:nth-last-child(){
-                            margin-right: 0;
-                        }
                         a {
                             font-size: .75em;
                             color: #fff;

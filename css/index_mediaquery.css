@@ -3,8 +3,8 @@
 /* 1024px 이하 */
 @media (max-width: 1024px) {
   /* 헤더 */
-  header {
-    position: fixed;
+  header .content1 {
+    width: 100%;
   }
   header .content1 .content_inner {
     width: 100%;
@@ -45,13 +45,14 @@
   }
   /* 메뉴 */
   .product {
-    width: 95%;
+    width: 90%;
+    overflow: hidden;
   }
   .store .store_wrap .find {
-    left: 10%;
+    left: 5%;
   }
   .store .store_wrap .catering {
-    left: 55%;
+    right: 5%;
   }
   footer {
     height: auto;
@@ -80,6 +81,245 @@
   footer .inner .footer_menu .policy ul li {
     display: inline-block;
     margin-right: .2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .new_event {
+    margin: 3rem auto;
+    width: 95%;
+  }
+  .new_event .inner .event_top h2 {
+    width: 50%;
+  }
+  .new_event .inner .event_top .txt_wrap {
+    width: 50%;
+  }
+  .new_event .inner .event_top .new_video {
+    display: none;
+  }
+  .banner_bg {
+    background: url("../img/bg_m_bannerbg.jpg") center right;
+  }
+  .banner_bg.active .scroll_txt1 {
+    left: 10%;
+    opacity: 1;
+  }
+  .banner_bg.active .scroll_txt2 {
+    left: 15%;
+    opacity: 1;
+  }
+  .product {
+    width: 95%;
+    margin: 3rem auto;
+  }
+  .product .product_wrap {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+  }
+  .product .product_wrap h2 {
+    width: 100%;
+    text-align: center;
+  }
+  .product .product_wrap .product_txt {
+    text-align: center;
+    margin: 1.5rem auto;
+  }
+  .product .product_wrap .product_txt p {
+    display: none;
+  }
+  .product .product_wrap .menu_list {
+    margin: 0 auto 0;
+  }
+  .product .product_wrap .menu_list li {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    margin-bottom: .5rem;
+  }
+  .product .product_wrap .menu_list li .img_wrap {
+    position: absolute;
+    width: 100%;
+  }
+  .product .product_wrap .menu_list .donuts, .product .product_wrap .menu_list .beverage, .product .product_wrap .menu_list .coffee, .product .product_wrap .menu_list .icecream {
+    background-color: #fff;
+    border: 1px solid #c8bfb0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    padding: 1rem;
+  }
+  .product .product_wrap .menu_list .donuts .txt_wrap, .product .product_wrap .menu_list .beverage .txt_wrap, .product .product_wrap .menu_list .coffee .txt_wrap, .product .product_wrap .menu_list .icecream .txt_wrap {
+    position: relative;
+    right: 0%;
+    bottom: 0%;
+    text-align: end;
+  }
+  .product .product_wrap .menu_list .donuts .img_wrap, .product .product_wrap .menu_list .beverage .img_wrap, .product .product_wrap .menu_list .coffee .img_wrap, .product .product_wrap .menu_list .icecream .img_wrap {
+    left: 0%;
+    top: 0%;
+  }
+  .product .product_wrap .menu_list .donuts .img_wrap img, .product .product_wrap .menu_list .beverage .img_wrap img, .product .product_wrap .menu_list .coffee .img_wrap img, .product .product_wrap .menu_list .icecream .img_wrap img {
+    width: 30%;
+  }
+  .product .product_wrap .menu_list .share {
+    display: none;
+  }
+  .product .product_wrap .menu_list .beverage .img_wrap {
+    left: 0%;
+    top: 5%;
+  }
+  .product .product_wrap .menu_list .beverage .img_wrap img {
+    width: 25%;
+  }
+  .product .product_wrap .menu_list .coffee {
+    background-color: #fff;
+    border: 1px solid #c8bfb0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    padding: 1rem;
+  }
+  .product .product_wrap .menu_list .coffee .txt_wrap {
+    position: relative;
+    right: 0%;
+    bottom: 0%;
+    text-align: end;
+    padding-right: 1.7rem;
+  }
+  .product .product_wrap .menu_list .coffee .img_wrap {
+    left: 5%;
+    top: 10%;
+  }
+  .product .product_wrap .menu_list .coffee .img_wrap img {
+    width: 25%;
+  }
+  .product .product_wrap .menu_list .gift {
+    display: none;
+  }
+  .store {
+    height: 700px;
+    margin: 3rem auto;
+  }
+  .store .store_wrap {
+    width: 70%;
+  }
+  .store .store_wrap .find {
+    width: 350px;
+    height: 350px;
+    left: 0%;
+    top: 0%;
+  }
+  .store .store_wrap .catering {
+    width: 350px;
+    height: 350px;
+    right: 0%;
+    top: 50%;
+  }
+  .main_sns {
+    margin: 3rem auto;
+  }
+  footer .inner {
+    width: 100%;
+    padding: .5rem;
+  }
+  footer .inner .footer_info {
+    width: 50%;
+  }
+  footer .inner .footer_info h1 {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  footer .inner .footer_info .adress {
+    color: #fff;
+    font-size: .7em;
+    margin-bottom: .5rem;
+  }
+  footer .inner .footer_info div {
+    margin-bottom: 0rem;
+    width: 100%;
+  }
+  footer .inner .footer_info div p {
+    color: #fff;
+    font-size: .7em;
+    float: none;
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+  footer .inner .footer_info .familysite {
+    position: absolute;
+    left: 4%;
+    top: 28%;
+  }
+  footer .inner .footer_menu .sitemap {
+    display: none;
+  }
+  footer .inner .footer_menu .policy ul li {
+    margin-right: .5rem;
+  }
+  footer .inner .footer_menu .policy ul li a {
+    font-size: .7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .new_event .inner .event_top .txt_wrap {
+    display: none;
+  }
+  .new_event .inner .allview_btn {
+    display: inline-block;
+  }
+  .main_sns .sns_wrap .sns_txt .sns_img li {
+    margin-left: .2rem;
+  }
+  footer .inner {
+    display: block;
+  }
+  footer .inner .footer_info {
+    width: 100%;
+  }
+  footer .inner .footer_info h1 {
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+  footer .inner .footer_info .adress {
+    text-align: center;
+  }
+  footer .inner .footer_info div {
+    text-align: center;
+    margin-bottom: 0rem;
+  }
+  footer .inner .footer_info div p {
+    color: #fff;
+    font-size: .7em;
+    float: left;
+    width: 50%;
+    margin-bottom: .5rem;
+  }
+  footer .inner .footer_info .copyright {
+    color: #fff;
+    font-size: .6em;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  footer .inner .footer_info .familysite {
+    position: relative;
+    left: 30%;
+    margin-bottom: 1rem;
+  }
+  footer .inner .footer_menu {
+    width: 100%;
+  }
+  footer .inner .footer_menu .footer_sns {
+    display: none;
   }
 }
 /*# sourceMappingURL=index_mediaquery.css.map */

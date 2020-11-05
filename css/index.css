@@ -867,12 +867,8 @@ main .container .main_wrap {
           justify-content: space-between;
 }
 
-.new_event .inner .event_top .h2 {
+.new_event .inner .event_top h2 {
   width: 33%;
-}
-
-.new_event .inner .event_top .h2 img {
-  width: 100%;
 }
 
 .new_event .inner .event_top .txt_wrap {
@@ -939,7 +935,7 @@ main .container .main_wrap {
 
 .new_event .inner .event_slide .event_wrap .event a figure {
   overflow: hidden;
-  position: relaive;
+  position: relative;
   border-bottom: 1px solid #d1cccb;
 }
 
@@ -1367,7 +1363,7 @@ main .container .main_wrap {
   border-radius: 100%;
   background: url("../img/bn_catering.png") no-repeat;
   position: absolute;
-  left: 50%;
+  right: 30%;
   top: 20%;
   opacity: 0;
 }
@@ -1516,24 +1512,14 @@ main .container .main_wrap {
   overflow: hidden;
 }
 
-.main_sns .sns_list .list_wrap {
+.main_sns .sns_list .list_wrap .img__wrap {
   width: 5720px;
+  position: absolute;
 }
 
-.main_sns .sns_list .list_wrap .img_wrap li {
-  float: left;
+.main_sns .sns_list .list_wrap .img__wrap img {
   width: 260px;
-  height: 260px;
-  overflow: hidden;
-}
-
-.main_sns .sns_list .list_wrap .img_wrap li a {
-  display: inline-block;
-}
-
-.main_sns .sns_list .list_wrap .img_wrap li a img {
-  width: 260px;
-  display: block;
+  position: absolute;
 }
 
 footer {
@@ -1589,32 +1575,37 @@ footer .inner .footer_info .copyright {
   margin-bottom: 2rem;
 }
 
+footer .inner .footer_info .familysite {
+  position: relative;
+  width: 150px;
+}
+
+footer .inner .footer_info .familysite:hover button {
+  background: transparent url("../img/family_size_on.png") no-repeat 100% 0;
+  border-radius: 0  0 5px 5px;
+}
+
+footer .inner .footer_info .familysite:hover ul {
+  opacity: 1;
+}
+
 footer .inner .footer_info .familysite button {
+  width: 100%;
   font-size: .7em;
   background: transparent url("../img/family_size_off.png") no-repeat 100% 0;
   border: 1px solid #fff;
   border-radius: 5px;
   color: #fff;
   padding: .5rem 3rem .5rem 1rem;
-  position: relative;
   outline: none;
 }
 
-footer .inner .footer_info .familysite button:hover {
-  background: transparent url("../img/family_size_on.png") no-repeat 100% 0;
-  border-radius: 0  0 5px 5px;
-}
-
-footer .inner .footer_info .familysite button:hover ul {
-  opacity: 1;
-}
-
-footer .inner .footer_info .familysite button ul {
+footer .inner .footer_info .familysite ul {
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: 100%;
   background: rgba(55, 35, 23, 0.8);
-  width: 100%;
   border-radius: 5px 5px 0 0;
   border: 1px solid #fff;
   opacity: 0;
@@ -1622,11 +1613,11 @@ footer .inner .footer_info .familysite button ul {
           box-sizing: border-box;
 }
 
-footer .inner .footer_info .familysite button ul li {
+footer .inner .footer_info .familysite ul li {
   padding: .5rem;
 }
 
-footer .inner .footer_info .familysite button ul li a {
+footer .inner .footer_info .familysite ul li a {
   font-size: .7em;
   color: #fff;
 }
@@ -1743,10 +1734,6 @@ footer .inner .footer_menu .policy ul {
 footer .inner .footer_menu .policy ul li {
   display: inline-block;
   margin-right: 1rem;
-}
-
-footer .inner .footer_menu .policy ul li:nth-last-child() {
-  margin-right: 0;
 }
 
 footer .inner .footer_menu .policy ul li a {

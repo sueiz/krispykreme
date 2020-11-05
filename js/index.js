@@ -39,7 +39,17 @@ $(function() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    prevArrow: false,
+                    nextArrow: false
+                }
+            }
+        ]
+
     });
 
     /* 메인 슬라이드 텍스트 애니메이션 */
@@ -79,7 +89,15 @@ $(function() {
         autoplaySpeed: 2000,
         dots: true,
         prevArrow: false,
-        nextArrow: false
+        nextArrow: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
       });
 
       $(window).scroll(function(){
@@ -97,6 +115,43 @@ $(function() {
             $('.store_wrap').removeClass('active');
         }
     })
+
+          //client rolling banner
+   
+    var bannerLeft=0;
+    var first=1;
+    var last;
+    var imgCnt=0;
+    var $img = $('.img__wrap img');
+    console.log($img);
+    var $first;
+    var $last;
+
+    $img.each(function(){   // 5px 간격으로 배너 처음 위치 시킴
+        $(this).css("left",bannerLeft);
+        bannerLeft += $(this).width();
+        $(this).attr("id", "banner"+(++imgCnt));  // img에 id 속성 추가
+    });
+
+    if( imgCnt > 10){                //배너 9개 이상이면 이동시킴
+        last = imgCnt;
+        setInterval(function() {
+            $img.each(function(){
+                $(this).css("left", $(this).position().left-1); // 1px씩 왼쪽으로 이동
+            });
+            $first = $("#banner"+first);
+            $last = $("#banner"+last);
+            if($first.position().left < -265) {    // 제일 앞에 배너 제일 뒤로 옮김
+                $first.css("left", $last.position().left + $last.width() );
+                first++;
+                last++;
+                if(last > imgCnt) { last=1; }   
+                if(first > imgCnt) { first=1; }
+            }
+        }, 50);   //여기 값을 조정하면 속도를 조정할 수 있다.(위에 1px 이동하는 부분도 조정하면 깔끔하게 변경가능하다           
+    }
+
+
 
 
 });
